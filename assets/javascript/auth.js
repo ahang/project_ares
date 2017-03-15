@@ -48,7 +48,7 @@
 
 
     var uiConfig = {
-        signInSuccessUrl: console.log("The user " + user.displayName + " has successfully signed in"),
+        signInSuccessUrl: "/movie.html",
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -76,6 +76,7 @@
             user.getToken().then(function(accessToken) {
             document.getElementById('sign-in-status').textContent = 'Signed in';
             document.getElementById('sign-in').textContent = 'Sign out';
+            $(".userName").html("Welcome " + user.DisplayName);
             document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
