@@ -31,10 +31,14 @@
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
     // ...
-});
+    });
 
     var user = firebase.auth().currentUser;
-    var name, email, photoUrl, uid, emailVerified;
+    var name, 
+        email, 
+        photoUrl, 
+        uid, 
+        emailVerified;
 
     if (user != null) {
         name = user.displayName
@@ -43,7 +47,7 @@
 
 
     var uiConfig = {
-        signInSuccessUrl: "/project_ares/movie.html",
+        signInSuccessUrl: console.log("Test Successful"),
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -69,17 +73,20 @@
             var uid = user.uid;
             var providerData = user.providerData;
             user.getToken().then(function(accessToken) {
-            document.getElementById('sign-in-status').textContent = 'Signed in';
-            document.getElementById('sign-in').textContent = 'Sign out';
-            document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-                }, null, '  ');
+                $(".login-container").addClass("invisible");
+                $(".userName").removeClass("invisible");
+                $(".userName").html("Welcome " + displayName);
+            // document.getElementById('sign-in-status').textContent = 'Signed in';
+            // document.getElementById('sign-in').textContent = 'Sign out';
+            // document.getElementById('account-details').textContent = JSON.stringify({
+            //     displayName: displayName,
+            //     email: email,
+            //     emailVerified: emailVerified,
+            //     photoURL: photoURL,
+            //     uid: uid,
+            //     accessToken: accessToken,
+            //     providerData: providerData
+            //     }, null, '  ');
             });
         } else {
         // User is signed out.

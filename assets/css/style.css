@@ -133,7 +133,7 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
 
-.login { 
+.login-container { 
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -142,7 +142,7 @@ body {
 	height: 350px;
 }
 
-.login h1 { 
+.login-container h1 { 
 	color: red; 
 	text-shadow: 0 0 10px rgba(0,0,0,0.3); 
 	letter-spacing: 15px; 
