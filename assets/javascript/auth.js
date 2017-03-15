@@ -74,7 +74,7 @@
             var providerData = user.providerData;
             user.getToken().then(function(accessToken) {
                 $(".login-container").addClass("invisible");
-                $(".userName").removeClass("invisible");
+                $(".userContainer").removeClass("invisible");
                 $(".userName").html("Welcome " + displayName);
             // document.getElementById('sign-in-status').textContent = 'Signed in';
             // document.getElementById('sign-in').textContent = 'Sign out';
