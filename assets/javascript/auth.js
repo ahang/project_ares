@@ -48,7 +48,7 @@
 
 
     var uiConfig = {
-        signInSuccessUrl: console.log("The user " + name + " has successfully signed in"),
+        signInSuccessUrl: console.log("The user " + user.displayName + " has successfully signed in"),
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
