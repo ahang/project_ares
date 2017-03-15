@@ -1,3 +1,4 @@
+ $(document).ready(function() {
 
     // Initialize Firebase
     var config = {
@@ -85,4 +86,4 @@
     window.addEventListener('load', function() {
         initApp()
     });
-
+});
