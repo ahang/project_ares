@@ -17,8 +17,8 @@
     //var database = firebase.database();
 
     var provider = new firebase.auth.GoogleAuthProvider();
-    
-    provider.addScope('https://www.googleapis.com/auth/plus.login');
+
+    // provider.addScope('https://www.googleapis.com/auth/plus.login');
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
@@ -36,33 +36,20 @@
     // ...
     });
 
-    var user = firebase.auth().currentUser;
-    var name, 
-        email, 
-        photoUrl, 
-        uid, 
-        emailVerified;
+    // var uiConfig = {
+    //     signInSuccessUrl: "null",
+    //     signInOptions: [
+    //       // Leave the lines as is for the providers you want to offer your users.
+    //       firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    //     ],
+    //     // Terms of service url.
+    //     tosUrl: console.log("This is successful!")
+    //   };
 
-    if (user != null) {
-        name = user.displayName
-         $(".userName").html("Welcome " + user.name);
-    }
-
-
-    var uiConfig = {
-        signInSuccessUrl: console.log("Test Successful"),
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        ],
-        // Terms of service url.
-        tosUrl: console.log("This is successful!")
-      };
-
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
+    //   // Initialize the FirebaseUI Widget using Firebase.
+    //   var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    //   // The start method will wait until the DOM is loaded.
+    //   ui.start('#firebaseui-auth-container', uiConfig);
 
 
     initApp = function() {
@@ -80,34 +67,23 @@
                 $(".user-container").removeClass("invisible");
                 $(".userName").html("Welcome " + displayName);
                 $(".signOut").html()
-            // document.getElementById('sign-in-status').textContent = 'Signed in';
-            // document.getElementById('sign-in').textContent = 'Sign out';
-            // document.getElementById('account-details').textContent = JSON.stringify({
-            //     displayName: displayName,
-            //     email: email,
-            //     emailVerified: emailVerified,
-            //     photoURL: photoURL,
-            //     uid: uid,
-            //     accessToken: accessToken,
-            //     providerData: providerData
-            //     }, null, '  ');
             });
         } else {
         // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
+            $('#sign-in-status').text("Signed out");
             // document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
+            $('#account-details').text("null");
         }
     }, function(error) {
         console.log(error);
         });
     };
 
-    firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-        }).catch(function(error) {
-    // An error happened.
-    });
+    // firebase.auth().signOut().then(function() {
+    // // Sign-out successful.
+    //     }).catch(function(error) {
+    // // An error happened.
+    // });
 
     window.addEventListener('load', function() {
         initApp()

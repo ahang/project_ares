@@ -1,26 +1,26 @@
 /*  using OpenSans becuase it's nice */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-* { 
+* {
 	/* safari and chrome */
-	-webkit-box-sizing: border-box; 
+	-webkit-box-sizing: border-box;
 	/* mozilla firefox */
-	-moz-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
 	/* internet explorer — not sure if edge, or whatever the new one is */
-	-ms-box-sizing: border-box; 
+	-ms-box-sizing: border-box;
 	/* Opera — does anyone still use this? */
-	-o-box-sizing: border-box; 
+	-o-box-sizing: border-box;
 	/* normal */
-	box-sizing: border-box; 
+	box-sizing: border-box;
 }
 
-html { 
-	width: 100%; 
-	height: 100%; 
-	overflow: hidden; 
+html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
-body { 
+body {
 	width: 100%;
 	height: 100%;
 	font-family: 'Open Sans', sans-serif;
@@ -35,7 +35,11 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
 
-.login-container { 
+.header-container{
+	text-align: center;
+}
+
+.login-container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -44,11 +48,11 @@ body {
 	height: 350px;
 }
 
-.login-container h1 { 
-	color: red; 
-	text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-	letter-spacing: 15px; 
-	text-align: center; 
+.login-container h1 {
+	color: red;
+	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	letter-spacing: 15px;
+	text-align: center;
 }
 
 .footer {
@@ -60,9 +64,9 @@ body {
 }
 
 
-div { 
-	width: 100%; 
-	margin-bottom: 10px; 
+div {
+	width: 100%;
+	margin-bottom: 10px;
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
@@ -83,8 +87,8 @@ div {
 
 
 	/* this is to get a small fade/shadow in the background when you click on email or password */
-* button:focus { 
-	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+* button:focus {
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
 	}
 
 
