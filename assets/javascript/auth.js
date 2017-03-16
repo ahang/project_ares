@@ -79,7 +79,8 @@
                 $(".login-container").addClass("invisible");
                 $(".user-container").removeClass("invisible");
                 $(".userName").html("Welcome " + displayName);
-                $(".signOut").html()
+                //var signOut = $(".signOut");
+                $(".signOut").addClass("btn");
             // document.getElementById('sign-in-status').textContent = 'Signed in';
             // document.getElementById('sign-in').textContent = 'Sign out';
             // document.getElementById('account-details').textContent = JSON.stringify({
@@ -103,10 +104,12 @@
         });
     };
 
-    firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-        }).catch(function(error) {
-    // An error happened.
+    $(".signOut").on("click", function() {
+        firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+            }).catch(function(error) {
+        // An error happened.
+        });
     });
 
     window.addEventListener('load', function() {
