@@ -32,25 +32,5 @@
         	method: 'GET'
         }).then(function(response){
         	$('#movie-view').html("<p>" + JSON.stringify(response) + "</p>");
-        })
-        
-
-        // =
-	// Initialize netflixroulette
-	// var config = {
-	// 	apiKey: "395604c82b2663c214732886fe58d756",
-	// 	apiReadAccessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTU2MDRjODJiMjY2M2MyMTQ3MzI4ODZmZTU4ZDc1NiIsInN1YiI6IjU4YzljYzJkYzNhMzY4NDEyYTAwMDQ3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B6rxV4ke7MA56btQq1wNVTJYcjPx335Oi7C4gNArQF0",
-	// 	apiRequest: "https://api.themoviedb.org/3/movie/550?api_key=",
-		// databaseURL: "https://projares-b990d.firebaseio.com",
-		// storageBucket: "projares-b990d.appspot.com",
-		// messagingSenderId: "811073714607"
-	// };
-
-	// firebase.initializeApp(config);
-
-	// var database = firebase.database();
-
+        });
 });
-
- console.log('wat');
- console.log('wbyyyyyyyy');
