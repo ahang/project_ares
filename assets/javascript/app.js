@@ -1,6 +1,7 @@
  $(document).ready(function() {
 
  	$("#find-movie").on("click", function(event) {
+ 		console.log('this was clicked')
 
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -24,7 +25,6 @@
         var queryURL = fullQUERY;
 
 
-        
 
         //this will call theMovieDB movie list 
         $.ajax({
@@ -32,6 +32,7 @@
         	method: 'GET'
         }).then(function(response){
         	$('#movie-view').html("<p>" + JSON.stringify(response) + "</p>");
+        	console.log('this is about working.' + response)
         })
         
 
@@ -50,4 +51,5 @@
 
 	// var database = firebase.database();
 
+	});
 });
