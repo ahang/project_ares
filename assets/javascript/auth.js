@@ -9,6 +9,9 @@
         messagingSenderId: "811073714607"
     };
 
+    console.log('hihi');
+    console.log('yo');
+
     firebase.initializeApp(config);
 
     //var database = firebase.database();
@@ -76,6 +79,7 @@
                 $(".login-container").addClass("invisible");
                 $(".user-container").removeClass("invisible");
                 $(".userName").html("Welcome " + displayName);
+                $(".signOut").html()
             // document.getElementById('sign-in-status').textContent = 'Signed in';
             // document.getElementById('sign-in').textContent = 'Sign out';
             // document.getElementById('account-details').textContent = JSON.stringify({
@@ -91,13 +95,19 @@
         } else {
         // User is signed out.
             document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
+            // document.getElementById('sign-in').textContent = 'Sign in';
             document.getElementById('account-details').textContent = 'null';
         }
     }, function(error) {
         console.log(error);
         });
     };
+
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+        }).catch(function(error) {
+    // An error happened.
+    });
 
     window.addEventListener('load', function() {
         initApp()

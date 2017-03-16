@@ -14,3 +14,6 @@
 	// var database = firebase.database();
 
 });
+
+ console.log('wat');
+ console.log('wbyyyyyyyy');
