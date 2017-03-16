@@ -31,9 +31,10 @@
         	url: queryURL,
         	method: 'GET'
         }).then(function(response){
-        	$('#movie-view').html("<p>" + JSON.stringify(response) + "</p>");
+        	$('#movie-view').html("<p>" + JSON.stringify(response.
+        		) + "</p>");
         	console.log('this is about working.' + response)
-        })
+        });
         
 
         // =
