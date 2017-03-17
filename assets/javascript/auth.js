@@ -66,7 +66,10 @@
                 $(".login-container").addClass("invisible");
                 $(".user-container").removeClass("invisible");
                 $(".userName").html("Welcome " + displayName);
-                $(".signOut").html()
+                var signOutBtn = $("<button>");
+                signOutBtn.addClass("signOutBtn btn btn-danger");
+                signOutBtn.text("Sign Out");
+                $(".signOut").append(signOutBtn);
             });
         } else {
         // User is signed out.
@@ -79,11 +82,16 @@
         });
     };
 
-    // firebase.auth().signOut().then(function() {
-    // // Sign-out successful.
-    //     }).catch(function(error) {
-    // // An error happened.
-    // });
+    $(document).on("click", ".signOutBtn", function() {
+        firebase.auth().signOut().then(function() {
+            console.log("I am Signed out");
+            $(".login-container").removeClass("invisible");
+            $(".user-container").addClass("invisible");
+    }).catch(function(error) {
+      // An error happened.
+    });
+
+    });
 
     window.addEventListener('load', function() {
         initApp()
