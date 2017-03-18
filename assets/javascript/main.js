@@ -54,5 +54,16 @@
 
              });
          };
+
+         function backup();
+
      });
- });
+         
+ function backup(){
+    for (var i =0; i< movies.length; i++) {
+        $("#movie-view").empty();
+        var MovieDiv = $("<div>");
+        MovieDiv.text(movies[i]);
+        $("#movie-view").prepend(MovieDiv);
+    };
+ };
