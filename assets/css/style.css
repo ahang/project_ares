@@ -1,60 +1,75 @@
 /*  using OpenSans becuase it's nice */
+
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-* {
-	/* safari and chrome */
+/* * {
+	// safari and chrome
 	-webkit-box-sizing: border-box;
-	/* mozilla firefox */
+	// mozilla firefox
 	-moz-box-sizing: border-box;
-	/* internet explorer — not sure if edge, or whatever the new one is */
+	// internet explorer — not sure if edge, or whatever the new one is
 	-ms-box-sizing: border-box;
-	/* Opera — does anyone still use this? */
+	// Opera — does anyone still use this?
 	-o-box-sizing: border-box;
-	/* normal */
+	// normal
 	box-sizing: border-box;
-}
+} */
 
-html {
+/*html {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-}
+}*/
 
 body {
 	width: 100%;
 	height: 100%;
 	font-family: 'Open Sans', sans-serif;
 	background: #092756;
+	background-image: url("../images/6335b33481b913f437b4e395cf71f9b6.jpg");
 
 	/* gradiant background colour */
-	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	/*background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
 	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
 	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );*/
+
 }
 
+.jumbotron { 
+	color: white;
+	text-align: center; 
+	height: 10px;
+	line-height: 0;
+	font-size: 20px;
+	background: rgba(0, 0, 0, 0.75); 
+
+}
+
+.introText { margin: auto; }
 
 .headContainer,
-.mainContainer,
+/*.mainContainer,*/
 .userName,
 .signOut,
 .movieFinder
  {
-	width: 50%;
-	margin-bottom: 10px;
-	background: rgba(0,0,0,0.3);
-	border: none;
-	outline: none;
-	padding: 10px;
+ 	/*float: left;*/
+	/*width: 50%;*/
+	/*margin-bottom: 5px;*/
+	background: rgba(0,0,0,0.5);
+	/*margin: 0 auto;*/
+	/*position: relative;*/
+	/*outline: none;*/
+	/*padding: 10px;*/
 	font-size: 13px;
 	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	/*text-shadow: 1px 1px 1px rgba(0,0,0,0.3);*/
 	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 4px;
-
-	 /*good ol' Brett lives on in our CSS */
+	/*border-radius: 4px;*/
 	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
 	-webkit-transition: box-shadow .5s ease;
 	-moz-transition: box-shadow .5s ease;
@@ -66,6 +81,7 @@ body {
 
 .headContainer { 
 	font-size: 30px;
+	/*border: solid;*/
 	text-align: center;
 	margin: auto;
 	margin-top: 50px;
@@ -74,19 +90,19 @@ body {
 	}
 
 .login-container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -150px 0 0 -150px;
-	width: 300px;
-	height: 350px;
+	/*position: absolute;*/
+	/*top: 50%;
+	left: 50%;*/
+	/*margin: -150px 0 0 -150px;*/
+	/*width: 300px;
+	height: 350px;*/
 }
 
 .insideContainer { margin: auto; }
 
 .login-container h1 {
 	color: red;
-	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+/*	text-shadow: 0 0 10px rgba(0,0,0,0.3);*/
 	letter-spacing: 15px;
 	text-align: center;
 }
@@ -108,10 +124,10 @@ body {
 
 
 	/* this is to get a small fade/shadow in the background when you click on email or password */
-* button:focus {
+/** button:focus {
 	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
 	}
-
+*/
 
 
 
