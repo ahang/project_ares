@@ -101,7 +101,7 @@ body {
 .insideContainer { margin: auto; }
 
 .login-container h1 {
-	color: red;
+	color: white;
 /*	text-shadow: 0 0 10px rgba(0,0,0,0.3);*/
 	letter-spacing: 15px;
 	text-align: center;
