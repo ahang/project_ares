@@ -19,12 +19,12 @@
     var provider = new firebase.auth.GoogleAuthProvider();
 
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
+    firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+        // This gives you a Google Access Token.
+            var token = result.credential.accessToken;
+        }
         var user = result.user;
-    // ...
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -37,7 +37,8 @@
     });
 
     var uiConfig = {
-        signInSuccessUrl: false,
+        queryParameterForSignInSuccessUrl: 'test',
+        signInSuccessUrl: "/",
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
