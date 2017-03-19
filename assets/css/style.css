@@ -55,7 +55,10 @@ body {
 /*.mainContainer,*/
 .userName,
 .signOut,
-.movieFinder
+.movieFinder,
+.userName,
+.signOut,
+.moviFinder
  {
  	/*float: left;*/
 	/*width: 50%;*/
@@ -110,7 +113,6 @@ body {
 .footer {
 	font-size: 10px;
 	text-align: center;
-	
 	position: absolute;
 	color: white;
 	bottom: 0;
