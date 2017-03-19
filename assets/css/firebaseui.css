@@ -19,12 +19,12 @@
 .mdl-button {
     background: 0 0;
     border: none;
-    border-radius: 2px;
+    border-radius: 15px;
     color: #000;
     position: relative;
     height: 36px;
     margin: 0;
-    min-width: 64px;
+    /*min-width: 1000px;*/
     padding: 0 16px;
     display: inline-block;
     font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -42,7 +42,7 @@
     line-height: 36px;
     vertical-align: middle
 }
-/*.mdl-button--fab,
+.mdl-button--fab,
 .mdl-button--icon {
     font-size: 24px;
     padding: 0;
@@ -91,9 +91,9 @@ input.mdl-button[type=submit] {
     background-color: #3f51b5
 }
 .mdl-button--raised.mdl-button--colored .mdl-ripple {
-    background: #fff*/
+    background: #fff
 }
-/*.mdl-button--fab {
+.mdl-button--fab {
     border-radius: 50%;
     height: 56px;
     margin: auto;
@@ -103,8 +103,8 @@ input.mdl-button[type=submit] {
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
     position: relative;
     line-height: normal
-}*/
-/*.mdl-button--fab .material-icons {
+}
+.mdl-button--fab .material-icons {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,19 +116,19 @@ input.mdl-button[type=submit] {
     height: 40px;
     min-width: 40px;
     width: 40px
-}*/
-/*.mdl-button--fab .mdl-button__ripple-container {
+}
+.mdl-button--fab .mdl-button__ripple-container {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
-}*/
-/*.mdl-button--fab:active {
+}
+.mdl-button--fab:active {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
     background-color: rgba(158, 158, 158, .4)
-}*/
-/*.mdl-button--fab:focus:not(:active) {
+}
+.mdl-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, .18), 0 8px 16px rgba(0, 0, 0, .36);
     background-color: rgba(158, 158, 158, .4)
-}*/
+}
 .mdl-button--fab.mdl-button--colored {
     background: #ff4081;
     color: #fff
@@ -146,7 +146,7 @@ input.mdl-button[type=submit] {
     height: 32px;
     margin-left: 0;
     margin-right: 0;
-    min-width: 502px;
+    min-width: 1002px;
     width: 502px;
     color: inherit;
     line-height: normal
@@ -172,7 +172,7 @@ input.mdl-button[type=submit] {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000)
 }
-/*.mdl-button__ripple-container {
+.mdl-button__ripple-container {
     display: block;
     height: 100%;
     left: 0;
@@ -231,22 +231,22 @@ input.mdl-button[type=submit] {
 }
 .mdl-button .material-icons {
     vertical-align: middle
-}*/
-/*.mdl-card {
+}
+.mdl-card {
     display: flex;
     flex-direction: column;
     font-size: 16px;
     font-weight: 400;
     min-height: 200px;
     overflow: hidden;
-    width: 330px;
+    width: 1000px;
     z-index: 1;
     position: relative;
     background: #fff;
     border-radius: 2px;
     box-sizing: border-box
-}*/
-/*.mdl-card__media {
+}
+.mdl-card__media {
     background-color: #ff4081;
     background-repeat: repeat;
     background-position: 50% 50%;
@@ -294,8 +294,8 @@ input.mdl-button[type=submit] {
     overflow: hidden;
     padding: 16px;
     width: 90%
-}*/
-/*.mdl-card__actions,
+}
+.mdl-card__actions,
 .mdl-textfield {
     font-size: 16px;
     box-sizing: border-box
@@ -323,8 +323,8 @@ input.mdl-button[type=submit] {
     height: 4px;
     width: 500px;
     max-width: 100%
-}*/
-/*.mdl-progress>.bar {
+}
+.mdl-progress>.bar {
     display: block;
     position: absolute;
     top: 0;
@@ -344,15 +344,15 @@ input.mdl-button[type=submit] {
 }
 .mdl-progress>.auxbar {
     right: 0
-}*/
-/*@supports (-webkit-appearance: none) {
+}
+@supports (-webkit-appearance: none) {
     .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate)>.auxbar,
     .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate)>.auxbar {
         background-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), linear-gradient(to right, #3f51b5, #3f51b5);
         mask: url(/images/buffer.svg?embed)
     }
-}*/
-/*.mdl-progress:not(.mdl-progress--indeterminate)>.auxbar,
+}
+.mdl-progress:not(.mdl-progress--indeterminate)>.auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate)>.auxbar {
     background-image: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), linear-gradient(to right, #3f51b5, #3f51b5)
 }
@@ -444,8 +444,8 @@ input.mdl-button[type=submit] {
     min-width: 32px;
     width: auto;
     min-height: 32px
-}*/
-/*.mdl-textfield__input,
+}
+.mdl-textfield__input,
 .mdl-textfield__label {
     font-size: 16px;
     width: 100%;
@@ -502,8 +502,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
     top: 24px;
     overflow: hidden;
     white-space: nowrap
-}*/
-/*.mdl-textfield.has-placeholder .mdl-textfield__label,
+}
+.mdl-textfield.has-placeholder .mdl-textfield__label,
 .mdl-textfield.is-dirty .mdl-textfield__label {
     visibility: hidden
 }
@@ -554,8 +554,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 }
 .mdl-textfield.is-invalid .mdl-textfield__label:after {
     background-color: #d50000
-}*/
-/*.mdl-textfield__error {
+}
+.mdl-textfield__error {
     position: absolute;
     margin-top: 3px;
     visibility: hidden;
@@ -577,7 +577,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 .mdl-textfield__expandable-holder .mdl-textfield__label:after {
     bottom: 0
 }
-@def BLACK_ALPHA_12 rgba(0,
+/*@def BLACK_ALPHA_12 rgba(0,
 0,
 0,
 0.12);
@@ -590,23 +590,23 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 0,
 0.87);*/
 .firebaseui-container {
-    /*background-color: #fff;*/
-    /*box-sizing: border-box;
+    background-color: #fff;
+    box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;*/
-    /*color: BLACK_ALPHA_87;*/
-    /*direction: ltr;*/
+    -webkit-box-sizing: border-box;
+    color: BLACK_ALPHA_87;
+    direction: ltr;
     /*font: 16px Roboto, arial, sans-serif;*/
-    /*margin: 0 auto;*/
-    /*max-width: 360px;*/
+    margin: 0 auto;
+    max-width: 1000px;
     overflow: hidden;
     position: relative;
-    /*width: 100%*/
+    width: 100%
 }
-/*.firebaseui-card-header {
-    padding: 24px 24px 0
-}*/
-./*firebaseui-card-content {
+.firebaseui-card-header {
+    padding: 1000px 1000px 0
+}
+.firebaseui-card-content {
     padding: 0 24px
 }
 .firebaseui-card-footer {
@@ -652,8 +652,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 }
 .firebaseui-text-emphasis {
     font-weight: 700
-}*/
-/*.firebaseui-error {
+}
+.firebaseui-error {
     color: #dd2c00;
     font-size: 12px;
     margin: -16px 0 16px
@@ -681,31 +681,31 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
 .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
     color: #757575
-}*/
-/*.firebaseui-input,
+}
+.firebaseui-input,
 .firebaseui-input-invalid {
     border-radius: 0;
     color: BLACK_ALPHA_87;
     direction: ltr;
     font-size: 16px;
     width: 100%
-}*/
+}
 .firebaseui-input-invalid {
     border-color: #dd2c00
 }
-/*.firebaseui-textfield {
+.firebaseui-textfield {
     width: 100%
-}*/
-/*.firebaseui-textfield.mdl-textfield .firebaseui-input {
+}
+.firebaseui-textfield.mdl-textfield .firebaseui-input {
     border-color: BLACK_ALPHA_12
 }
 .firebaseui-textfield.mdl-textfield .firebaseui-label::after {
     background-color: #3f51b5
-}*/
-/*.firebaseui-textfield-invalid.mdl-textfield .firebaseui-input {
+}
+.firebaseui-textfield-invalid.mdl-textfield .firebaseui-input {
     border-color: #dd2c00
-}*/
-/*.firebaseui-idp-favicon,
+}
+.firebaseui-idp-favicon,
 .firebaseui-idp-icon {
     border: none;
     vertical-align: middle;
@@ -713,8 +713,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 }
 .firebaseui-textfield-invalid.mdl-textfield .firebaseui-label::after {
     background-color: #dd2c00
-}*/
-/*.firebaseui-button {
+}
+.firebaseui-button {
     display: inline-block;
     height: 36px;
     margin-left: 8px;
@@ -725,54 +725,54 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
     font-variant: normal;
     font-weight: 400;
     text-decoration: none
-}*/
-/*.firebaseui-link:hover {
+}
+.firebaseui-link:hover {
     text-decoration: underline
-}*/
-/*.firebaseui-form-actions {
+}
+.firebaseui-form-actions {
     direction: ltr;
     float: right
-}*/
-/*.firebaseui-indent {
+}
+.firebaseui-indent {
     margin-left: 1em
-}*/
-/*.firebaseui-tos {
+}
+.firebaseui-tos {
     color: #757575;
     font-size: 12px;
     margin-bottom: 24px
-}*/
-/*.firebaseui-page-provider-sign-in {
+}
+.firebaseui-page-provider-sign-in {
     background: inherit
-}*/
+}
 .firebaseui-idp-list {
     list-style: none;
     margin: 1em 0;
     padding: 0
 }
-/*.firebaseui-idp-button {
+.firebaseui-idp-button {
     direction: ltr;
     font-weight: 500;
-    height: 40px;
+    height: 70px;
     max-width: 220px;
     padding-left: 16px;
-    text-align: left;
+    text-align: center;
     width: 100%
-}*/
-/*.firebaseui-idp-list>.firebaseui-list-item {
+}
+.firebaseui-idp-list>.firebaseui-list-item {
     margin-bottom: 15px;
     text-align: center
-}*/
+}
 .firebaseui-idp-icon {
     height: 35px;
     width: 35px
     padding: 50px;
 }
-/*.firebaseui-idp-favicon {
+.firebaseui-idp-favicon {
     height: 14px;
     margin-right: 5px;
     width: 14px
-}*/
-/*.firebaseui-idp-text {
+}
+.firebaseui-idp-text {
     color: #fff;
     font-size: 14px;
     padding-left: 16px;
@@ -781,41 +781,41 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 }
 .firebaseui-idp-text.firebaseui-idp-text-long {
     display: inline-block
-}*/
-/*.firebaseui-idp-text.firebaseui-idp-text-short {
+}
+.firebaseui-idp-text.firebaseui-idp-text-short {
     display: none
-}*/
-/*@media (max-width: 268px) {
+}
+@media (max-width: 268px) {
     .firebaseui-idp-text.firebaseui-idp-text-long {
         display: none
     }
     .firebaseui-idp-text.firebaseui-idp-text-short {
         display: inline-block
     }
-}*/
-/*.firebaseui-idp-password,
+}
+.firebaseui-idp-password,
 .firebaseui-idp-password:hover {
     background-color: #db4437
-}*/
-/*.firebaseui-idp-google,
+}
+.firebaseui-idp-google,
 .firebaseui-idp-google:hover {
-    background-color: #fff
-}*/
-/*.firebaseui-idp-google>.firebaseui-idp-text {
+    background-color: white;
+}
+.firebaseui-idp-google>.firebaseui-idp-text {
     color: #757575
-}*/
-/*.firebaseui-idp-github,
+}
+.firebaseui-idp-github,
 .firebaseui-idp-github:hover {
     background-color: #333
-}*/
-/*.firebaseui-idp-facebook,
+}
+.firebaseui-idp-facebook,
 .firebaseui-idp-facebook:hover {
     background-color: #3b5998
-}*/
-/*.firebaseui-idp-twitter,
+}
+.firebaseui-idp-twitter,
 .firebaseui-idp-twitter:hover {
     background-color: #55acee
-}*/
+}
 .firebaseui-info-bar {
     background-color: #f9edbe;
     border: 1px solid #f0c36d;
@@ -829,11 +829,11 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
     text-align: center;
     /*top: 0*/
 }
-/*.firebaseui-info-bar-message {
+.firebaseui-info-bar-message {
     font-size: 12px;
     margin: 0
-}*/
-/*.firebaseui-busy-indicator {
+}
+.firebaseui-busy-indicator {
     height: 2px;
     left: 0;
     position: absolute;
@@ -859,15 +859,15 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
     position: absolute;
     right: 0;
     top: 20px;
-    width: 24px
-}*/
-/*.firebaseui-input-toggle-on {
+    width: 1000px
+}
+.firebaseui-input-toggle-on {
     background-image: url(//www.gstatic.com/images/icons/material/system/1x/visibility_black_24dp.png)
 } 
-/*.firebaseui-input-toggle-off {
+.firebaseui-input-toggle-off {
     background-image: url(//www.gstatic.com/images/icons/material/system/1x/visibility_off_black_24dp.png)
-}*/
-/*.firebaseui-input-toggle-focus {
+}
+.firebaseui-input-toggle-focus {
     opacity: .87
 }
 .firebaseui-input-toggle-blur {
@@ -897,4 +897,4 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input {
 .mdl-textfield__label {
     font-weight: 400;
     margin-bottom: 0
-}*/
+}
