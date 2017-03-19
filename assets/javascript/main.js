@@ -56,6 +56,12 @@ $(document).ready(function() {
                 $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
 
+                var netflixBtn = $("<button>");
+                netflixBtn.addClass("btn netflixBtn img");
+                netflixBtn.append('<img src="assets/images/netflix.png"/>');
+                //etflix.addText("View it on Netflix");
+                $("#movie-view").append(netflixBtn);
+
                 var thumbsUpBtn = $("<button>");
                 thumbsUpBtn.addClass("btn btn-success");
                 thumbsUpBtn.text("I Liked It");
