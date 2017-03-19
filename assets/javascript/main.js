@@ -23,50 +23,56 @@
          // Here we construct our URL
          var queryURL = fullQUERY;
 
-         //var flixRouletteURL = "http://netflixroulette.net/api/api.php?title=";
-
          //this will call theMovieDB movie list
          $.ajax({
              url: queryURL,
              method: 'GET'
          }).then(function(response) {
-            // random number generator
-            function randomOrder() {
-                return Math.floor(Math.random() * 20);
-            }
+             // random number generator
+             function randomOrder() {
+                 return Math.floor(Math.random() * 20);
+             }
 
-            var randomOrder = randomOrder();
-            
-            // return response;
-            // $('#movie-view').html("<p>" + JSON.stringify(response.results[0].title + "</p>");
-            var title = response.results[randomOrder].title;
+             var randomOrder = randomOrder();
 
-            console.log(title);
-            flixRoulette(title);
+             // return response;
+             // $('#movie-view').html("<p>" + JSON.stringify(response.results[0].title + "</p>");
+             var title = response.results[randomOrder].title;
+
+             console.log(title);
+             flixRoulette(title);
          });
 
-
-
          function flixRoulette(movieTitle) {
-             var flixRouletteURL = encodeURIComponent(movieTitle);
+             var searchParam = encodeURIComponent(movieTitle);
 
-             var flixSearch = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + flixRouletteURL + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
+             var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
 
-             console.log(flixSearch);
              $.ajax({
                  beforeSend: function(request) {
                      request.setRequestHeader("X-Mashape-Key", "f4wdRtwlPImshDfHb3hczt25D4bGp1HrZTFjsnhctrypL2Qe6I");
                      request.setRequestHeader("Accept", "application/json");
                  },
-                 url: flixSearch,
+                 url: unogsUrl,
                  method: 'GET'
              }).then(function(response) {
                  console.log(response.ITEMS[0][1]);
-                 $("#movie-view").html("<p>Your selected movie is " + response.ITEMS[0][1]);
+                 $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1]);
                  console.log("Title");
                  $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
                  console.log('this is the image');
                  $("#movie-view").append("<br> The plot of this movie is " + response.ITEMS[0][3]);
+
+                 var thumbsUpBtn = $("<button>");
+                 thumbsUpBtn.addClass("btn btn-success");
+                 thumbsUpBtn.text("Like It");
+                 $("#movie-view").append("<br>" + thumbsUpBtn);
+
+                 var thumbsDwnBtn = $("<button>");
+                 thumbsDwnBtn.addClass("btn btn-danger");
+                 thumbsDwnBtn.text("Dislike it");
+                 $("#movie-view").append("<br>" + thumbsDwnBtn);
+
                  console.log('this is the plot');
                  // $('#movie-view').html("<p>" + '<img src="' + response + '">');
                  // console.log("this is: " + response.poster);
@@ -75,5 +81,3 @@
          };
      });
  });
-
-
