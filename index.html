@@ -14,18 +14,22 @@
 <body>
     <!-- INTRO SCREEN -->
     <div class="jumbotron">
-    <div class="logo"><a href="index.html"> PROJECT ARES </div></a>
+        <div class="row">
+            <div class="col-md-6 logo"><a href="index.html"> PROJECT ARES </div></a>
+            <div class="col-md-6 user-container signOut"></div>
+        </div>
     </div>
     
     
-    <div class="container"> 
+    <div class="container login-container"> 
+    <!-- I could create a hidden div here, but though Breaks would be easier     -->
          <br>
          <br>
          <br>
          <br>
     </div>
     
-    <div class="container">
+    <div class="container login-container">
         <div class="introText">
             <p class="light">Watching movies is tough,</p>
             <p class="heavy">luckily you just found your wingman.</p>                
@@ -33,7 +37,7 @@
         </div>
        
     </div>
-    <div class="container"> 
+    <div class="container login-container"> 
         <div class="login-btn">
             <hr>
             Log in
@@ -43,15 +47,18 @@
         
     </div>
 
-
     <!-- INTERACTIVE SCREEN -->
-    <div class="user-container invisible headContainer2">
-        <div class="userName "></div>
-        <div class="signOut"></div>
-        <button class="movieFinder" id="find-movie">button</button>
-        <div class="movieFinder" id="movie-view"></div>
-        <div class="image"></div>
+    <div class="container user-container invisible">
+        <div class="userName"></div>
     </div>
+    <div class="row">
+            <div class="col-md-6 movieFinder" id="find-movie">
+                I am feeling lucky 
+                <br>
+                
+            </div>
+            <div class="col-md-6 movieFinder" id="movie-view"></div>
+        </div>
 
 
 
@@ -66,11 +73,10 @@
     <script type="text/javascript" src="assets/javascript/auth.js"></script>
 
 </body>
-<footer class="footer">
-    <div class="container">
-        
-        <p class="">Netflix and Chill</p>
 
+ <footer class="footer">        
+    <div class="container">
+        <p class="">Netflix and Chill</p>
     </div>
 </footer>
 

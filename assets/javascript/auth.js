@@ -59,6 +59,7 @@ $(document).ready(function() {
                 var providerData = user.providerData;
                 user.getToken().then(function(accessToken) {
                     $(".login-container").addClass("invisible"); //hides login container if user is logged in
+                    $(".signOut").removeClass("invisible"); //hides login container if user is logged in
                     $(".user-container").removeClass("invisible"); //unhides the user container
                     $(".userName").html("Welcome " + displayName); //displays Welcome username
                     var signOutBtn = $("<button>");
