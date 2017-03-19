@@ -80,18 +80,16 @@ $(document).ready(function() {
             $("movie-view").empty;
         }
 
-        $(document).on("click", ".netflixBtn", function() {
+        function netflixWatch() {
             var name = $(this).attr("data-link");
-            var netflixURL = "https://www.netflix.com/title/" + name;
+            var netflixURL = "https://www.netflix.com/search?q=" + name;
 
             window.open(netflixURL);
+        }
+
+        $(document).on("click", ".netflixBtn", function() {
+            netflixWatch();
         });
-
-
-
-
-
-
 
     });
 });
