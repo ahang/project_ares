@@ -34,12 +34,8 @@
              }
 
              var randomOrder = randomOrder();
-
-             // return response;
-             // $('#movie-view').html("<p>" + JSON.stringify(response.results[0].title + "</p>");
              var title = response.results[randomOrder].title;
 
-             console.log(title);
              flixRoulette(title);
          });
 
@@ -56,21 +52,22 @@
                  url: unogsUrl,
                  method: 'GET'
              }).then(function(response) {
+                console.log(response.ITEMS);
                  console.log(response.ITEMS[0][1]);
                  $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1]);
                  console.log("Title");
                  $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
                  console.log('this is the image');
-                 $("#movie-view").append("<br> The plot of this movie is " + response.ITEMS[0][3]);
+                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3]);
 
                  var thumbsUpBtn = $("<button>");
                  thumbsUpBtn.addClass("btn btn-success");
-                 thumbsUpBtn.text("Like It");
+                 thumbsUpBtn.text("I Liked It");
                  $("#movie-view").append("<br>" + thumbsUpBtn);
 
                  var thumbsDwnBtn = $("<button>");
                  thumbsDwnBtn.addClass("btn btn-danger");
-                 thumbsDwnBtn.text("Dislike it");
+                 thumbsDwnBtn.text("I Disliked it");
                  $("#movie-view").append("<br>" + thumbsDwnBtn);
 
                  console.log('this is the plot');
@@ -79,5 +76,9 @@
 
              });
          };
+
+
+
+
      });
  });
