@@ -65,12 +65,12 @@ $(document).ready(function() {
                 $("#movie-view").append(netflixBtn);
 
                 var thumbsUpBtn = $("<button>");
-                thumbsUpBtn.addClass("btn btn-success");
+                thumbsUpBtn.addClass("thmbsup btn btn-success");
                 thumbsUpBtn.text("I Liked It");
                 $("#movie-view").append(thumbsUpBtn);
 
                 var thumbsDwnBtn = $("<button>");
-                thumbsDwnBtn.addClass("btn btn-warning");
+                thumbsDwnBtn.addClass("thmbsdwn btn btn-warning");
                 thumbsDwnBtn.text("I Disliked it");
                 $("#movie-view").append(thumbsDwnBtn);
             });
