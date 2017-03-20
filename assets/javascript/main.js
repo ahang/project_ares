@@ -86,7 +86,7 @@ $(document).ready(function() {
 
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
-        console.log(netflixURL);
+        //console.log(netflixURL);
 
         window.open(netflixURL);
 

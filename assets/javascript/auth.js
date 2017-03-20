@@ -31,8 +31,9 @@ $(document).ready(function() {
     });
 
     var uiConfig = {
-        queryParameterForSignInSuccessUrl: 'test',
-        signInSuccessUrl: "/",
+        queryParameterForWidgetMode: "mode",
+        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
+        signInSuccessUrl: "/index.html",
         signInOptions: [
             // Leave the lines as is for the providers you want to offer your users.
             firebase.auth.GoogleAuthProvider.PROVIDER_ID
