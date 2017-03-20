@@ -42,7 +42,7 @@ $(document).ready(function() {
         function flixRoulette(movieTitle) {
             var searchParam = encodeURIComponent(movieTitle);
 
-            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!No&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
+            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and"
 
             $.ajax({
                 beforeSend: function(request) {
