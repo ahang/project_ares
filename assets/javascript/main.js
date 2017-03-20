@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $("#find-movie").on("click", function(event) {
-
+        clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
         event.preventDefault();
@@ -42,7 +42,7 @@ $(document).ready(function() {
         function flixRoulette(movieTitle) {
             var searchParam = encodeURIComponent(movieTitle);
 
-            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
+            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!No&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
 
             $.ajax({
                 beforeSend: function(request) {
@@ -56,6 +56,14 @@ $(document).ready(function() {
                 $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
 
+                var netflixBtn = $("<button>");
+                netflixBtn.addClass("btn netflixBtn img");
+                netflixBtn.attr("data-link", response.ITEMS[0][0]);
+                console.log(netflixBtn);
+                netflixBtn.append('<img src="assets/images/netflix.png"/>');
+                //etflix.addText("View it on Netflix");
+                $("#movie-view").append(netflixBtn);
+
                 var thumbsUpBtn = $("<button>");
                 thumbsUpBtn.addClass("btn btn-success");
                 thumbsUpBtn.text("I Liked It");
@@ -68,8 +76,20 @@ $(document).ready(function() {
             });
         };
 
+        function clearInfo() {
+            $("movie-view").empty;
+        }
 
+        function netflixWatch() {
+            var name = $(this).attr("data-link");
+            var netflixURL = "https://www.netflix.com/search?q=" + name;
 
+            window.open(netflixURL);
+        }
+
+        $(document).on("click", ".netflixBtn", function() {
+            netflixWatch();
+        });
 
     });
 });

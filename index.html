@@ -61,19 +61,6 @@
 </div>
 
 <!-- INTRO SCREEN -->
-<!-- <div class="navbar jumbotron">
-    <div class="row">
-        <div class="col-md-6 logo"><a href="index.html"> PROJECT ARES </div></a>
-
-        <div class="col-md-6 row">
-
-
-        </div>
-
-    </div>
-</div> -->
-
-
 <div class="container login-container"> 
     <!-- I could create a hidden div here, but though Breaks would be easier     -->
     <br>
@@ -88,6 +75,7 @@
         <p class="heavy">luckily you just found your wingman.</p>                
 
     </div>
+
 
 </div>
 <div class="container login-container"> 
@@ -108,7 +96,11 @@
 <br>
 <div class="row">
     <div class="col-md-4">
-
+      
+    <div class="user-container invisible headContainer">
+        <button class="movieFinder" id="find-movie">button</button>
+        <div class="movieFinder" id="movie-view"></div>
+        <div class="image"></div>
     </div>
     <div class="col-md-4 movieFinder invisible" id="find-movie">
         <button class="movie-button action">GIVE IT TO ME ROUGH</button>
@@ -122,13 +114,6 @@
         <button class="movie-button romance">IN THE MOOD TO SHIT MY PANTS</button>
         <hr>
         <button class="movie-button drama">I REALLY JUST WANT TO... CHILL</button>
-
-    </div>
-
-</div>
-<div class="col-md-6 movieFinder" id="movie-view"></div>
-
-
 
 
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
