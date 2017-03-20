@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#find-movie").on("click", function(event) {
+    $(".movie-button").on("click", function(event) {
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -57,10 +57,10 @@ $(document).ready(function() {
                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
 
                 var netflixBtn = $("<button>");
-                netflixBtn.addClass("btn netflixBtn img");
+                netflixBtn.addClass("btn netflixBtn");
                 netflixBtn.attr("data-link", response.ITEMS[0][4]);
                 console.log(netflixBtn);
-                netflixBtn.append('<img src="assets/images/netflix.png"/>');
+                netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
                 //etflix.addText("View it on Netflix");
                 $("#movie-view").append(netflixBtn);
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
                 $("#movie-view").append(thumbsUpBtn);
 
                 var thumbsDwnBtn = $("<button>");
-                thumbsDwnBtn.addClass("btn btn-danger");
+                thumbsDwnBtn.addClass("btn btn-warning");
                 thumbsDwnBtn.text("I Disliked it");
                 $("#movie-view").append(thumbsDwnBtn);
             });

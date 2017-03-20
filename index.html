@@ -94,27 +94,28 @@
 <br>
 <br>
 <br>
-<div class="row">
-    <div class="col-md-4">
+<div class="container">
+    <div class="noMargin row">
 
-    <div class="user-container invisible headContainer">
-        <button class="movieFinder" id="find-movie">button</button>
-        <div class="movieFinder" id="movie-view"></div>
-        <div class="image"></div>
+        <div class="max-width col-md-6 movieFinder invisible" id="find-movie">
+            <button class="movie-button action">GIVE IT TO ME ROUGH</button>
+            <hr>
+            <button class="movie-button comedy">I LOVE ME SOME LAUGHS</button>
+            <hr>
+            <button class="movie-button sci-fi">I JUST WANT TO PONDER LIFE</button>
+            <hr>
+            <button class="movie-button romance">IF I'M NOT CRYING, IT'S NOT WORTH IT</button>
+            <hr>
+            <button class="movie-button romance">IN THE MOOD TO SHIT MY PANTS</button>
+            <hr>
+            <button class="movie-button drama">I REALLY JUST WANT TO... CHILL</button>
+        </div>
+        <div class="max-width col-md-6 user-container invisible headContainer">
+            <div class="movieFinder" id="movie-view"></div>
+            <div class="image"></div>
+        </div>  
     </div>
-    <div class="col-md-4 movieFinder invisible" id="find-movie">
-        <button class="movie-button action">GIVE IT TO ME ROUGH</button>
-        <hr>
-        <button class="movie-button comedy">I LOVE ME LAUGHS</button>
-        <hr>
-        <button class="movie-button sci-fi">I JUST WANT TO PONDER LIFE</button>
-        <hr>
-        <button class="movie-button romance">IF I'M NOT CRYING, IT'S NOT WORTH IT</button>
-        <hr>
-        <button class="movie-button romance">IN THE MOOD TO SHIT MY PANTS</button>
-        <hr>
-        <button class="movie-button drama">I REALLY JUST WANT TO... CHILL</button>
-
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
