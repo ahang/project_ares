@@ -46,19 +46,19 @@ $(document).ready(function() {
 
             $.ajax({
                 beforeSend: function(request) {
-                    request.setRequestHeader("X-Mashape-Key", "f4wdRtwlPImshDfHb3hczt25D4bGp1HrZTFjsnhctrypL2Qe6I");
+                    request.setRequestHeader("X-Mashape-Key", "EnvSlMBKiYmsh28JzdBpJ2QcZcuyp1BtD76jsn5PZhgx2gcXDq");
                     request.setRequestHeader("Accept", "application/json");
                 },
                 url: unogsUrl,
                 method: 'GET'
             }).then(function(response) {
-                $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1]);
+                $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1] + "</p>");
                 $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
 
                 var netflixBtn = $("<button>");
                 netflixBtn.addClass("btn netflixBtn img");
-                netflixBtn.attr("data-link", response.ITEMS[0][0]);
+                netflixBtn.attr("data-link", response.ITEMS[0][4]);
                 console.log(netflixBtn);
                 netflixBtn.append('<img src="assets/images/netflix.png"/>');
                 //etflix.addText("View it on Netflix");
@@ -80,16 +80,17 @@ $(document).ready(function() {
             $("movie-view").empty;
         }
 
-        function netflixWatch() {
-            var name = $(this).attr("data-link");
-            var netflixURL = "https://www.netflix.com/search?q=" + name;
-
-            window.open(netflixURL);
-        }
-
-        $(document).on("click", ".netflixBtn", function() {
-            netflixWatch();
-        });
-
     });
+
+    $(document).on("click", ".netflixBtn", function() {
+
+        var name = $(this).attr("data-link");
+        var netflixURL = "https://www.netflix.com/title/" + name;
+        console.log(netflixURL);
+
+        window.open(netflixURL);
+
+        //netflixWatch();
+    });
+
 });
