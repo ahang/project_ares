@@ -4,48 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Ares</title>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
     <link type="text/css" rel="stylesheet" href="assets/css/firebaseui.css">
+    
     <script src="assets/javascript/firebaseui.js"></script>
+    
+    <script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+    
+    <script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script> 
+    
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <!-- Second navbar for categories -->
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PROJECT ARES</a>
+        </div>
+        <!-- Collect the nav links for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a class="userName"></a></li>
+            <li>
+                <a class="user-container signOut"></a>
+            </li>
+        </ul>
+        <ul class="collapse nav navbar-nav nav-collapse" id="nav-collapse">
+            <li><a href="#">action</a></li>
+            <li><a href="#">drama</a></li>
+            <li><a href="#">romance</a></li>
+            <li><a href="#">horror</a></li>
+            <li><a href="#">scifi</a></li>
+            <li><a href="#">comedy</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</div>
+</nav>
+</div>
 
-    <div class="jumbotron">PROJECT ARES</div>
+<!-- INTRO SCREEN -->
+<div class="container login-container"> 
+    <!-- I could create a hidden div here, but though Breaks would be easier     -->
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 
-    <div class="login-container">
-        <h1 class="headContainer introText">
-                Random movie? <br> Come on in!
-                <button class="headContainer" id="firebaseui-auth-container"></button>
-            </h1>
+<div class="container login-container">
+    <div class="introText">
+        <p class="light">Watching movies is tough,</p>
+        <p class="heavy">luckily you just found your wingman.</p>                
 
     </div>
 
+
+</div>
+<div class="container login-container"> 
+    <div class="login-btn">
+        <hr>
+        Log in
+        <button class="" id="firebaseui-auth-container"></button>
+        <hr>
+    </div>
+
+</div>
+
+<!-- INTERACTIVE SCREEN -->
+<div class="container user-container">
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-4">
+      
     <div class="user-container invisible headContainer">
-        <div class="userName "></div>
-        <div class="signOut"></div>
         <button class="movieFinder" id="find-movie">button</button>
         <div class="movieFinder" id="movie-view"></div>
         <div class="image"></div>
     </div>
+    <div class="col-md-4 movieFinder invisible" id="find-movie">
+        <button class="movie-button action">GIVE IT TO ME ROUGH</button>
+        <hr>
+        <button class="movie-button comedy">I LOVE ME LAUGHS</button>
+        <hr>
+        <button class="movie-button sci-fi">I JUST WANT TO PONDER LIFE</button>
+        <hr>
+        <button class="movie-button romance">IF I'M NOT CRYING, IT'S NOT WORTH IT</button>
+        <hr>
+        <button class="movie-button romance">IN THE MOOD TO SHIT MY PANTS</button>
+        <hr>
+        <button class="movie-button drama">I REALLY JUST WANT TO... CHILL</button>
 
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-messaging.js"></script>
 
-    <script type="text/javascript" src="assets/javascript/main.js"></script>
-    <script type="text/javascript" src="assets/javascript/auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-messaging.js"></script>
+
+<script type="text/javascript" src="assets/javascript/main.js"></script>
+<script type="text/javascript" src="assets/javascript/auth.js"></script>
 
 </body>
-<footer class="footer">
+
+<footer class="footer">        
     <div class="container">
-
-        <p class="text-muted">Netflix and Chill</p>
-
+        <p class="">Netflix and Chill</p>
     </div>
 </footer>
 
