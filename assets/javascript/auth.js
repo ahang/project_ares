@@ -13,6 +13,8 @@ $(document).ready(function() {
 
 // FirebaseUI config.
       var uiConfig = {
+        queryParameterForWidgetMode: "mode",
+        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
         signInSuccessUrl: '/',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
@@ -70,6 +72,7 @@ $(document).ready(function() {
     });
 
     window.addEventListener('load', function() {
+        event.preventDefault();
         initApp()
     });
 });

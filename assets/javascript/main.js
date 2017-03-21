@@ -40,6 +40,7 @@ $(document).ready(function() {
     // }
 
     $(".movie-button").on("click", function(event) {
+        event.preventDefault();
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
