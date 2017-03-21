@@ -149,14 +149,14 @@ $(document).ready(function() {
     });
 
 
-    $(document).on("click", ".thumbsUpBtn", function() {
-        thmbsup++;
+    $(document).on("click", ".thmbsup", function() {
+        thumbsUp++;
         database.ref().set({
         thumbsUp_counter: thumbsUp
         });
     });
 
-    $(document).on("click", ".thumbsDwnBtn", function() {
+    $(document).on("click", ".thmbsdwn", function() {
         thmbsdwn++;
         database.ref().set({
         thmbsdwn_counter: thmbsdwn

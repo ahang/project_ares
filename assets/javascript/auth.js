@@ -10,7 +10,7 @@ $(document).ready(function() {
     };
 
     firebase.initializeApp(config);
-     var database = firebase.database();
+    var database = firebase.database();
 
 // FirebaseUI config.
       var uiConfig = {
