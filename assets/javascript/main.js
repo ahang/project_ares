@@ -5,33 +5,36 @@ $(document).ready(function() {
     }
 
     var introLight = {
-        ["Watching movies is tough."],
-        ["Endlessly searching for movies is tiring."],
-        ["Finding the right movie is hard."],
-        ["Wandering the aethers of netflix alone?"],
-        ["Feel like parallel lines that'll never meet?"],
-        ["Don't worry if you're ugly."],
-        ["Need to be touched by an angel?"],
-        ["Ready to be 100% spontaneous?"]
+        ["Watching movies is tough.", 
+        "Endlessly searching for movies is tiring.",
+        "Finding the right movie is hard.",
+        "Wandering the aethers of netflix alone?",
+        "Feel like parallel lines that'll never meet?",
+        "Don't worry if you're ugly.",
+        "Need to be touched by an angel?",
+        "Ready to be 100% spontaneous?"
+        ]
 
     }
 
     var introDark = {
-        ["Luckily you just found your wingman... wingwoman."],
-        ["Let us do the... hard work for you."],
-        ["Settle down, we're not looking to make it harder."],
-        ["We need a date and got the perfect movie."],
-        ["Don't worry we still have so much in common."],
-        ["We'll still find a movie for you."],
-        ["We'll do the rough work, you just lay right there!"],
+        ["Luckily you just found your wingman... wingwoman.",
+        "Let us do the... hard work for you.",
+        "Settle down, we're not looking to make it harder.",
+        "We need a date and got the perfect movie.",
+        "Don't worry we still have so much in common.",
+        "We'll still find a movie for you.",
+        "We'll do the rough work, you just lay right there!",
+        ]
     }
 
     var footerQuotes = {
-        ["netflix and chill"],
-        ["as you wish"],
-        ["0-100 real quick"],
-        ["Nobody puts Baby in a corner."],
-        ["I wanted it to be you, I wanted it to be you so badly."],
+        "netflix and chill",
+        "as you wish",
+        "0-100 real quick",
+        "Nobody puts Baby in a corner.",
+        "I wanted it to be you, I wanted it to be you so badly.",
+        ]
 
     }
 
