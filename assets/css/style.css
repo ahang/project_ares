@@ -150,7 +150,15 @@ p.heavy {
 	width: 65px;
 	height: 20px;
 }
+h1 {
+	text-align: center;
+	color:tomato;
+}
 
+p{
+	padding:70px;
+	color: white;	
+}
 /*@media (min-width: 768px)
 navbar.less:232
 .navbar-toggle {
