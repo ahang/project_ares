@@ -36,11 +36,14 @@ body {
 
 a {
 	color: white; 
-	text-decoration: none}
+	text-decoration: none
+}
 
 a:hover {
 	color: white; 
-	text-decoration: none}
+	text-decoration: none;
+	background-color: tomato;
+}
 
 .logo {
 	color: white;
@@ -61,6 +64,11 @@ p.normal {
 }
 p.heavy {
 	font-weight: 900;
+}
+
+h1 {
+	text-align: center;
+	color:tomato;
 }
 
 .introText { 
@@ -150,9 +158,12 @@ p.heavy {
 	width: 65px;
 	height: 20px;
 }
-h1 {
-	text-align: center;
-	color:tomato;
+
+
+.aboutText { 
+	color: white;
+	font-size: 50px;
+	margin: auto 0px; 
 }
 
 /*@media (min-width: 768px)
