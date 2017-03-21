@@ -39,12 +39,20 @@ a {
 	text-decoration: none
 }
 
-a:hover {
+/*a:hover {
 	color: white; 
 	text-decoration: none;
 	background-color: tomato;
-}
+}*/
 
+.navbar-default .navbar-brand:hover {
+	background-color: tomato;
+	color: white;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	transition: border-radius .5s ease;
+
+}
 .logo {
 	color: white;
 	background: tomato;
@@ -254,7 +262,8 @@ navbar.less:232
 	width: 50%;
 	margin: 0 auto;
 }
-.submit-button { margin: 0 auto ; }
-
+.submit-button { 
+	margin-top: 20px
+}
 
 
