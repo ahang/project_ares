@@ -1,5 +1,38 @@
 $(document).ready(function() {
 
+
+    var introLight = {
+        ["Watching movies is tough."],
+        ["Endlessly searching for movies is tiring."]
+        ["Finding the right movie is hard."],
+        ["Wandering the aethers of netflix alone?"],
+        ["Feel like parallel lines that'll never meet?"],
+        ["Don't worry if you're ugly."],
+        ["Need to be touched by an angel?"],
+        ["Ready to be 100% spontaneous?"]
+
+    }
+
+    var introDark = {
+        ["Luckily you just found your wingman... wingwoman."],
+        ["Let us do the... hard work for you."],
+        ["Settle down, we're not looking to make it harder."],
+        ["We need a date and got the perfect movie."],
+        ["Don't worry we still have so much in common."],
+        ["We'll still find a movie for you."],
+        ["We'll do the rough work, you just lay right there!"],
+    }
+
+    var footerQuotes = {
+        ["netflix and chill"],
+        ["as you wish"],
+        ["0-100 real quick"],
+        ["Nobody puts Baby in a corner."],
+        ["I wanted it to be you, I wanted it to be you so badly."],
+
+
+    }
+
     $(".movie-button").on("click", function(event) {
         clearInfo();
         // Preventing the submit button from trying to submit the form
@@ -65,12 +98,12 @@ $(document).ready(function() {
                 $("#movie-view").append(netflixBtn);
 
                 var thumbsUpBtn = $("<button>");
-                thumbsUpBtn.addClass("btn btn-success");
+                thumbsUpBtn.addClass("thmbsup btn btn-success");
                 thumbsUpBtn.text("I Liked It");
                 $("#movie-view").append(thumbsUpBtn);
 
                 var thumbsDwnBtn = $("<button>");
-                thumbsDwnBtn.addClass("btn btn-warning");
+                thumbsDwnBtn.addClass("thmbsdwn btn btn-warning");
                 thumbsDwnBtn.text("I Disliked it");
                 $("#movie-view").append(thumbsDwnBtn);
             });

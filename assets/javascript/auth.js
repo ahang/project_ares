@@ -88,7 +88,6 @@ $(document).ready(function() {
         }).catch(function(error) {
             // An error happened.
         });
-
     });
 
     window.addEventListener('load', function() {
