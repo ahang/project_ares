@@ -240,5 +240,14 @@ navbar.less:232
 }
 
 
+/* CONTACT FORM */
+
+
+.form-group {
+	width: 50%;
+	margin: 0 auto;
+}
+.submit-button { margin: 0 auto ; }
+
 
 
