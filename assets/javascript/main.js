@@ -1,5 +1,61 @@
 $(document).ready(function() {
 
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
+        authDomain: "projares-b990d.firebaseapp.com",
+        databaseURL: "https://projares-b990d.firebaseio.com",
+        storageBucket: "projares-b990d.appspot.com",
+        messagingSenderId: "811073714607"
+    };
+
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var thumbsUp = 0;
+    var thmbsdwn =0;
+
+    $("#thumbsUpBtn").on("click", function() {
+      thmbsup++;
+      database.ref().set({
+        thumbsUp_counter: thumbsUp
+      });
+    });
+
+    database.ref().on("value", function(snapshot) {
+
+        console.log(snapshot.val());
+
+        $("#thumbsUp-value").html(snapshot.val().thumbsUp_counter);
+
+        thumbsUp_counter = snapshot.val().thumbsUp;
+
+        }, function(errorObject) {
+
+            console.log("The read failed: " + errorObject.code);
+    });
+
+    $("#thumbsDwnBtn").on("click", function() {
+        thmbsdwn++;
+        database.ref().set({
+            thmbsdwn_counter: thmbsdwn
+        });
+    });
+
+    database.ref().on("value", function(snapshot) {
+
+        console.log(snapshot.val());
+
+        $("#thmbsdwn_value").html(snapshot.val().thmbsdwn_counter);
+
+        thmbsdwn_counter = snapshot.val().thmbsdwn;
+
+    }, function(errorObject) {
+
+        console.log("The read failed: " + errorObject.code);
+    });
+
+
+
     $(".movie-button").on("click", function(event) {
         clearInfo();
         // Preventing the submit button from trying to submit the form
