@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     var introLight = {
         ["Watching movies is tough."],
-        ["Endlessly searching for movies is tiring."]
+        ["Endlessly searching for movies is tiring."],
         ["Finding the right movie is hard."],
         ["Wandering the aethers of netflix alone?"],
         ["Feel like parallel lines that'll never meet?"],
@@ -96,7 +96,7 @@ $(document).ready(function() {
                 netflixBtn.attr("data-link", response.ITEMS[0][4]);
                 console.log(netflixBtn);
                 netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
-                //etflix.addText("View it on Netflix");
+                //Netflix.addText("View it on Netflix");
                 $("#movie-view").append(netflixBtn);
 
                 var thumbsUpBtn = $("<button>");
