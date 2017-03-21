@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    function randomOrder() {
+        return Math.floor(Math.random() * 20);
+    }
 
     var introLight = {
         ["Watching movies is tough."],
@@ -29,7 +32,6 @@ $(document).ready(function() {
         ["0-100 real quick"],
         ["Nobody puts Baby in a corner."],
         ["I wanted it to be you, I wanted it to be you so badly."],
-
 
     }
 
