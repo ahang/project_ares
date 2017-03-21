@@ -1,6 +1,41 @@
 $(document).ready(function() {
 
-    $("#find-movie").on("click", function(event) {
+    function randomOrder() {
+        return Math.floor(Math.random() * 20);
+    }
+
+    var introLight = {
+        ["Watching movies is tough."],
+        ["Endlessly searching for movies is tiring."],
+        ["Finding the right movie is hard."],
+        ["Wandering the aethers of netflix alone?"],
+        ["Feel like parallel lines that'll never meet?"],
+        ["Don't worry if you're ugly."],
+        ["Need to be touched by an angel?"],
+        ["Ready to be 100% spontaneous?"]
+
+    }
+
+    var introDark = {
+        ["Luckily you just found your wingman... wingwoman."],
+        ["Let us do the... hard work for you."],
+        ["Settle down, we're not looking to make it harder."],
+        ["We need a date and got the perfect movie."],
+        ["Don't worry we still have so much in common."],
+        ["We'll still find a movie for you."],
+        ["We'll do the rough work, you just lay right there!"],
+    }
+
+    var footerQuotes = {
+        ["netflix and chill"],
+        ["as you wish"],
+        ["0-100 real quick"],
+        ["Nobody puts Baby in a corner."],
+        ["I wanted it to be you, I wanted it to be you so badly."],
+
+    }
+
+    $(".movie-button").on("click", function(event) {
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -42,7 +77,7 @@ $(document).ready(function() {
         function flixRoulette(movieTitle) {
             var searchParam = encodeURIComponent(movieTitle);
 
-            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!No&t=ns&cl=all&st=adv&ob=Relevance&p=1&sa=and"
+            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and"
 
             $.ajax({
                 beforeSend: function(request) {
@@ -57,20 +92,20 @@ $(document).ready(function() {
                 $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
 
                 var netflixBtn = $("<button>");
-                netflixBtn.addClass("btn netflixBtn img");
+                netflixBtn.addClass("btn netflixBtn");
                 netflixBtn.attr("data-link", response.ITEMS[0][4]);
                 console.log(netflixBtn);
-                netflixBtn.append('<img src="assets/images/netflix.png"/>');
-                //etflix.addText("View it on Netflix");
+                netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
+                //Netflix.addText("View it on Netflix");
                 $("#movie-view").append(netflixBtn);
 
                 var thumbsUpBtn = $("<button>");
-                thumbsUpBtn.addClass("btn btn-success");
+                thumbsUpBtn.addClass("thmbsup btn btn-success");
                 thumbsUpBtn.text("I Liked It");
                 $("#movie-view").append(thumbsUpBtn);
 
                 var thumbsDwnBtn = $("<button>");
-                thumbsDwnBtn.addClass("btn btn-danger");
+                thumbsDwnBtn.addClass("thmbsdwn btn btn-warning");
                 thumbsDwnBtn.text("I Disliked it");
                 $("#movie-view").append(thumbsDwnBtn);
             });
@@ -86,7 +121,7 @@ $(document).ready(function() {
 
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
-        console.log(netflixURL);
+        //console.log(netflixURL);
 
         window.open(netflixURL);
 

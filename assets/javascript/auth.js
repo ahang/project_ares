@@ -11,10 +11,36 @@ $(document).ready(function() {
 
     firebase.initializeApp(config);
 
+<<<<<<< HEAD
     // FirebaseUI config.
       var uiConfig = {
         queryParameterForSignInSuccessUrl: 'test',
         signInSuccessUrl: "/",
+=======
+    var provider = new firebase.auth.GoogleAuthProvider();
+    //Using a google redirect
+    firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+            // This gives you a Google Access Token.
+            var token = result.credential.accessToken;
+        }
+        var user = result.user;
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+    });
+
+    var uiConfig = {
+        queryParameterForWidgetMode: "mode",
+        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
+        signInSuccessUrl: "/index.html",
+>>>>>>> master
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -106,7 +132,6 @@ $(document).ready(function() {
         }).catch(function(error) {
             // An error happened.
         });
-
     });
 
     window.addEventListener('load', function() {
