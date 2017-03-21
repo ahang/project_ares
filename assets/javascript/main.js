@@ -1,58 +1,58 @@
 $(document).ready(function() {
 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
-        authDomain: "projares-b990d.firebaseapp.com",
-        databaseURL: "https://projares-b990d.firebaseio.com",
-        storageBucket: "projares-b990d.appspot.com",
-        messagingSenderId: "811073714607"
-    };
+    // // Initialize Firebase
+    // var config = {
+    //     apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
+    //     authDomain: "projares-b990d.firebaseapp.com",
+    //     databaseURL: "https://projares-b990d.firebaseio.com",
+    //     storageBucket: "projares-b990d.appspot.com",
+    //     messagingSenderId: "811073714607"
+    // };
 
-    firebase.initializeApp(config);
-    var database = firebase.database();
+    // firebase.initializeApp(config);
+   
     var thumbsUp = 0;
     var thmbsdwn =0;
 
-    $("#thumbsUpBtn").on("click", function() {
-      thmbsup++;
-      database.ref().set({
-        thumbsUp_counter: thumbsUp
-      });
-    });
+    // $(".thumbsUpBtn").on("click", function() {
+    // thmbsup++;
+    // database.ref().set({
+    // thumbsUp_counter: thumbsUp
+    // });
+    // });
 
-    database.ref().on("value", function(snapshot) {
+    // database.ref().on("value", function(snapshot) {
 
-        console.log(snapshot.val());
+    //     console.log(snapshot.val());
 
-        $("#thumbsUp-value").html(snapshot.val().thumbsUp_counter);
+    //     $("#thumbsUp-value").html(snapshot.val().thumbsUp_counter);
 
-        thumbsUp_counter = snapshot.val().thumbsUp;
+    //     thumbsUp_counter = snapshot.val().thumbsUp;
 
-        }, function(errorObject) {
+    //     }, function(errorObject) {
 
-            console.log("The read failed: " + errorObject.code);
-    });
+    //         console.log("The read failed: " + errorObject.code);
+    // });
 
-    $("#thumbsDwnBtn").on("click", function() {
-        thmbsdwn++;
-        database.ref().set({
-            thmbsdwn_counter: thmbsdwn
-        });
-    });
+    // $("#thumbsDwnBtn").on("click", function() {
+    //     thmbsdwn++;
+    //     database.ref().set({
+    //         thmbsdwn_counter: thmbsdwn
+    //     });
+    // });
 
-    database.ref().on("value", function(snapshot) {
+    // database.ref().on("value", function(snapshot) {
 
-        console.log(snapshot.val());
+    //     console.log(snapshot.val());
 
-        $("#thmbsdwn_value").html(snapshot.val().thmbsdwn_counter);
+    //     $("#thmbsdwn_value").html(snapshot.val().thmbsdwn_counter);
 
-        thmbsdwn_counter = snapshot.val().thmbsdwn;
+    //     thmbsdwn_counter = snapshot.val().thmbsdwn;
 
-    }, function(errorObject) {
+    // }, function(errorObject) {
 
-        console.log("The read failed: " + errorObject.code);
-    });
+    //     console.log("The read failed: " + errorObject.code);
+    // });
 
 
     $(".movie-button").on("click", function(event) {
@@ -146,6 +146,21 @@ $(document).ready(function() {
         window.open(netflixURL);
 
         //netflixWatch();
+    });
+
+
+    $(document).on("click", ".thumbsUpBtn", function() {
+        thmbsup++;
+        database.ref().set({
+        thumbsUp_counter: thumbsUp
+        });
+    });
+
+    $(document).on("click", ".thumbsDwnBtn", function() {
+        thmbsdwn++;
+        database.ref().set({
+        thmbsdwn_counter: thmbsdwn
+        });
     });
 
 });
