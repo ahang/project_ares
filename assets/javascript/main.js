@@ -1,43 +1,59 @@
 $(document).ready(function() {
 
-    function randomOrder() {
-        return Math.floor(Math.random() * 20);
-    }
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
+        authDomain: "projares-b990d.firebaseapp.com",
+        databaseURL: "https://projares-b990d.firebaseio.com",
+        storageBucket: "projares-b990d.appspot.com",
+        messagingSenderId: "811073714607"
+    };
 
-    // var introLight = {
-    //     [
-    //     "Watching movies is tough.", 
-    //     "Endlessly searching for movies is tiring.",
-    //     "Finding the right movie is hard.",
-    //     "Wandering the aethers of netflix alone?",
-    //     "Feel like parallel lines that'll never meet?",
-    //     "Don't worry if you're ugly.",
-    //     "Need to be touched by an angel?",
-    //     "Ready to be 100% spontaneous?"
-    //     ]
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var thumbsUp = 0;
+    var thmbsdwn =0;
 
-    // }
+    $("#thumbsUpBtn").on("click", function() {
+      thmbsup++;
+      database.ref().set({
+        thumbsUp_counter: thumbsUp
+      });
+    });
 
-    // var introDark = {
-    //     ["Luckily you just found your wingman... wingwoman.",
-    //     "Let us do the... hard work for you.",
-    //     "Settle down, we're not looking to make it harder.",
-    //     "We need a date and got the perfect movie.",
-    //     "Don't worry we still have so much in common.",
-    //     "We'll still find a movie for you.",
-    //     "We'll do the rough work, you just lay right there!",
-    //     ]
-    // }
+    database.ref().on("value", function(snapshot) {
 
-    // var footerQuotes = {
-    //     "netflix and chill",
-    //     "as you wish",
-    //     "0-100 real quick",
-    //     "Nobody puts Baby in a corner.",
-    //     "I wanted it to be you, I wanted it to be you so badly.",
-    //     ]
+        console.log(snapshot.val());
 
-    // }
+        $("#thumbsUp-value").html(snapshot.val().thumbsUp_counter);
+
+        thumbsUp_counter = snapshot.val().thumbsUp;
+
+        }, function(errorObject) {
+
+            console.log("The read failed: " + errorObject.code);
+    });
+
+    $("#thumbsDwnBtn").on("click", function() {
+        thmbsdwn++;
+        database.ref().set({
+            thmbsdwn_counter: thmbsdwn
+        });
+    });
+
+    database.ref().on("value", function(snapshot) {
+
+        console.log(snapshot.val());
+
+        $("#thmbsdwn_value").html(snapshot.val().thmbsdwn_counter);
+
+        thmbsdwn_counter = snapshot.val().thmbsdwn;
+
+    }, function(errorObject) {
+
+        console.log("The read failed: " + errorObject.code);
+    });
+
 
     $(".movie-button").on("click", function(event) {
         clearInfo();
