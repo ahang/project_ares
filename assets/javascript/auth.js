@@ -11,42 +11,21 @@ $(document).ready(function() {
 
     firebase.initializeApp(config);
 
-    var provider = new firebase.auth.GoogleAuthProvider();
-    //Using a google redirect
-    firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-            // This gives you a Google Access Token.
-            var token = result.credential.accessToken;
-        }
-        var user = result.user;
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
-
-    var uiConfig = {
-        queryParameterForWidgetMode: "mode",
-        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
-        signInSuccessUrl: "/index.html",
+// FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '/',
         signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
-        tosUrl: ""
-    };
+        tosUrl: '<your-tos-url>'
+      };
 
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig);
-
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
 
     initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {

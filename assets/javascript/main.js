@@ -55,7 +55,6 @@ $(document).ready(function() {
     });
 
 
-
     $(".movie-button").on("click", function(event) {
         clearInfo();
         // Preventing the submit button from trying to submit the form
@@ -117,7 +116,7 @@ $(document).ready(function() {
                 netflixBtn.attr("data-link", response.ITEMS[0][4]);
                 console.log(netflixBtn);
                 netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
-                //etflix.addText("View it on Netflix");
+                //Netflix.addText("View it on Netflix");
                 $("#movie-view").append(netflixBtn);
 
                 var thumbsUpBtn = $("<button>");

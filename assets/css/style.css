@@ -150,6 +150,10 @@ p.heavy {
 	width: 65px;
 	height: 20px;
 }
+h1 {
+	text-align: center;
+	color:tomato;
+}
 
 /*@media (min-width: 768px)
 navbar.less:232
@@ -231,6 +235,15 @@ navbar.less:232
 	background: tomato;
 }
 
+
+/* CONTACT FORM */
+
+
+.form-group {
+	width: 50%;
+	margin: 0 auto;
+}
+.submit-button { margin: 0 auto ; }
 
 
 
