@@ -36,12 +36,23 @@ body {
 
 a {
 	color: white; 
-	text-decoration: none}
+	text-decoration: none
+}
 
-a:hover {
+/*a:hover {
 	color: white; 
-	text-decoration: none}
+	text-decoration: none;
+	background-color: tomato;
+}*/
 
+.navbar-default .navbar-brand:hover {
+	background-color: tomato;
+	color: white;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	transition: border-radius .5s ease;
+
+}
 .logo {
 	color: white;
 	background: tomato;
@@ -61,6 +72,11 @@ p.normal {
 }
 p.heavy {
 	font-weight: 900;
+}
+
+h1 {
+	text-align: center;
+	color:tomato;
 }
 
 .introText { 
@@ -150,9 +166,12 @@ p.heavy {
 	width: 65px;
 	height: 20px;
 }
-h1 {
-	text-align: center;
-	color:tomato;
+
+
+.aboutText { 
+	color: white;
+	font-size: 50px;
+	margin: auto 0px; 
 }
 
 /*@media (min-width: 768px)
@@ -243,7 +262,8 @@ navbar.less:232
 	width: 50%;
 	margin: 0 auto;
 }
-.submit-button { margin: 0 auto ; }
-
+.submit-button { 
+	margin-top: 20px
+}
 
 
