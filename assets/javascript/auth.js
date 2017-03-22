@@ -15,7 +15,9 @@ $(document).ready(function() {
 
 // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: '/',
+        queryParameterForWidgetMode: "mode",
+        queryParameterForSignInSuccessUrl: "signInSuccessUrl",
+        signInSuccessUrl: "/project_ares/",
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -66,12 +68,14 @@ $(document).ready(function() {
             console.log("I am Signed out");
             $(".login-container").removeClass("invisible");
             $(".user-container").addClass("invisible");
+            $(".movieFinder").addClass("invisible");
         }).catch(function(error) {
             // An error happened.
         });
     });
 
     window.addEventListener('load', function() {
+        event.preventDefault();
         initApp()
     });
 });
