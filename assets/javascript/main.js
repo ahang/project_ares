@@ -12,9 +12,8 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     var database = firebase.database();
    
-    var counter = {
-        thumbsUp: 0,
-        thumbsDwn: 0
+    var userPreference = {
+        bookmarkAdded :[]
     };
     
 
@@ -83,15 +82,18 @@ $(document).ready(function() {
                 //Netflix.addText("View it on Netflix");
                 $("#movie-view").append(netflixBtn);
 
-                var thumbsUpBtn = $("<button>");
-                thumbsUpBtn.addClass("thmbsup btn btn-success");
-                thumbsUpBtn.text("I Liked It");
-                $("#movie-view").append(thumbsUpBtn);
+                var bookmark = $("<button>");
+                bookmark.addClass("thmbsup btn btn-success");
+                bookmark.attr("data-link", response.ITEMS[0][4]);
+                bookmark.attr("data-name", response.ITEMS[0][1]);
+                bookmark.text("Bookmark It");
+                $("#movie-view").append(bookmark);
 
-                var thumbsDwnBtn = $("<button>");
-                thumbsDwnBtn.addClass("thmbsdwn btn btn-warning");
-                thumbsDwnBtn.text("I Disliked it");
-                $("#movie-view").append(thumbsDwnBtn);
+                var removeBookmark = $("<button>");
+                removeBookmark.addClass("thmbsdwn btn btn-warning");
+                removeBookmark.attr("data-link", response.ITEMS[0][4]);
+                removeBookmark.text("Remove Bookmark");
+                $("#movie-view").append(removeBookmark);
             });
         };
 
@@ -114,13 +116,28 @@ $(document).ready(function() {
 
 
     $(document).on("click", ".thmbsup", function() {
-        counter.thumbsUp++;
-        database.ref().set(counter);
+        var movieId = $(this).attr("data-link");
+        var movieName = $(this).attr("data-name");
+        userPreference.bookmarkAdded.push({
+            id: movieId, 
+            name: movieName
+        });
+        database.ref().set(userPreference);
     });
 
     $(document).on("click", ".thmbsdwn", function() {
-        counter.thumbsDwn++;
-        database.ref().set(counter);
+        var movieId = $(this).attr("data-link");
+        remove(userPreference.bookmarkAdded,movieId);
+        database.ref().set(userPreference);
     });
+
+    // function to remove the element from array 
+    function remove(arr, item) {
+        for(var i = arr.length-1;i>=0;i--) {
+              if(arr[i].id === item) {
+                  arr.splice(i, 1);
+            }
+        }
+    }
 
 });
