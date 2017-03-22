@@ -11,12 +11,34 @@ $(document).ready(function() {
 
     firebase.initializeApp(config);
     var database = firebase.database();
-   
-    var userPreference = {
-        bookmarkAdded :[]
-    };
-    
 
+    var userInitialized = 0;
+    var userPreference = {
+        bookmarkAdded : []
+    };
+
+    database.ref().on("value", function(snapshot) {
+            if (snapshot.child("bookmarkAdded").exists()){
+                userPreference.bookmarkAdded = snapshot.val().bookmarkAdded;
+            }
+            userInitialized = 1;
+            console.log(userPreference.bookmarkAdded + " array data");
+            console.log(userPreference.bookmarkAdded.length + " array length");
+    });
+
+    function checkUserInitialized(){
+        console.log("init called");
+        if(userInitialized == 0){
+            setTimeout(checkUserInitialized, 1000);
+        }
+        else
+        {
+            console.log("init completed");
+            displayMovie();
+        }
+    }
+    
+   
     $(".movie-button").on("click", function(event) {
         event.preventDefault();
         clearInfo();
@@ -145,5 +167,18 @@ $(document).ready(function() {
             }
         }
     }
+
+    function displayMovie() {
+        console.log("display called");
+        for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
+            var BookMarkDiv = $("<button>");
+            $('#movie-bookmarked').append(BookMarkDiv);
+            BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
+            console.log(userPreference.bookmarkAdded[i].name);
+            BookMarkDiv.addClass("movie-button action");
+        }
+        console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
+    }
+    checkUserInitialized();
 
 });
