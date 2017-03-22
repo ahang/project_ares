@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>About Page</title>
-    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Ares</title>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Link to CSS -->
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/css/firebaseui.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
@@ -23,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">PROJECT ARES</a>
+                    <a class="navbar-brand" href="#">PROJECT ARES</a>
                 </div>
                 <!-- Collect the nav links for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -31,6 +36,8 @@
                         <li><a href="about.html">About</a>
                         </li>
                         <li><a href="contact.html">Contact</a>
+                        </li>
+                        <li><a href="bookmark.html">Bookmark</a>
                         </li>
                         <li>
                             <a class="userName"></a>
@@ -58,21 +65,51 @@
             </div>
         </nav>
     </div>
-    <div class="row">
-        <div class="container login-container">
-            <div class="aboutText">
-                <p class="light">This website was created by four students at Northwestern University Coding Bootcamp.</p>
+
+    <!-- INTERACTIVE SCREEN -->
+    <div class="container user-container">
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="noMargin row">
+
+            <div class="max-width col-md-6 movieFinder " id="find-movie">
+                <button class="movie-button action">GIVE IT TO ME ROUGH</button>
                 <hr>
-                <p class="heavy">The purpose of this app is to help you decide one movie to watch that is currently on Netflix. Everything is parsed through IMDB to ensure the rating of the movie is a 6 or above. Currently, in Netflix the user rating is not very accurate. We want to help users ensure an excellent viewing experience </p>
+                <button class="movie-button comedy">I LOVE ME SOME LAUGHS</button>
+                <hr>
+                <button class="movie-button sci-fi">I JUST WANT TO PONDER LIFE</button>
+                <hr>
+                <button class="movie-button romance">IF I'M NOT CRYING, IT'S NOT WORTH IT</button>
+                <hr>
+                <button class="movie-button romance">IN THE MOOD TO SHIT MY PANTS</button>
+                <hr>
+                <button class="movie-button drama">I REALLY JUST WANT TO... CHILL</button>
+            </div>
+            <div class="max-width col-md-6 user-container  headContainer">
+                <div class="movieFinder" id="movie-view"></div>
+                <div class="image"></div>
             </div>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-messaging.js"></script>
+
+    <script type="text/javascript" src="assets/javascript/main.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
+
 <footer class="footer">
     <div class="container">
-        <a href="https://www.netflix.com/title/21059770">Netflix and Chill</a>
+        <a href="https://www.netflix.com/title/21059770">Netflix and Chill<a>
 </div>
 </footer>
-
 
 </html>
