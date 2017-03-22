@@ -45,12 +45,19 @@ a {
 	background-color: tomato;
 }*/
 
+.navbar-default .navbar-brand {
+	transition: .5s ease;
+}
+
 .navbar-default .navbar-brand:hover {
 	background-color: tomato;
+	height: 70px;
 	color: white;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	transition: border-radius .5s ease;
+	z-index: -5;
+	/*border-bottom-left-radius: 10px;*/
+	/*border-bottom-right-radius: 10px;*/
+	/*transition: border-radius .5s ease;*/
+	transition: height .5s ease;
 
 }
 .logo {
@@ -239,6 +246,12 @@ navbar.less:232
 	background-color: tomato; 
 }
 */
+
+.footerLink, .footerLink:hover {
+	text-decoration: none;
+	color: white;
+}
+
 .footer {
 	color: white;
 	font-size: 10px;
@@ -246,6 +259,7 @@ navbar.less:232
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	transition: height .5s ease;
 	/*height: 30px;*/
 	line-height: 30px;
 	/*border-top: solid;*/
@@ -255,6 +269,11 @@ navbar.less:232
 }
 
 
+.footer:hover {
+	height: 5%;
+	transition: height .5s ease;
+}
+
 /* CONTACT FORM */
 
 
@@ -262,10 +281,14 @@ navbar.less:232
 	width: 50%;
 	margin: 0 auto;
 }
+
 .submit-button { 
 	margin-top: 20px
 }
 
+.imageStyle {
+	margin: 0 auto;
+}
 
 
 
