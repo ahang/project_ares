@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    // Initialize Firebase
+    //Initialize Firebase
     var config = {
         apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
         authDomain: "projares-b990d.firebaseapp.com",
@@ -9,8 +9,9 @@ $(document).ready(function() {
         messagingSenderId: "811073714607"
     };
 
-    firebase.initializeApp(config);
-    var database = firebase.database();
+    // firebase.initializeApp(config);
+    // var database = firebase.database();
+
 
 // FirebaseUI config.
       var uiConfig = {

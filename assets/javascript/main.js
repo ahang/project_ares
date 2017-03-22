@@ -1,61 +1,25 @@
 $(document).ready(function() {
 
-    // // Initialize Firebase
-    // var config = {
-    //     apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
-    //     authDomain: "projares-b990d.firebaseapp.com",
-    //     databaseURL: "https://projares-b990d.firebaseio.com",
-    //     storageBucket: "projares-b990d.appspot.com",
-    //     messagingSenderId: "811073714607"
-    // };
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
+        authDomain: "projares-b990d.firebaseapp.com",
+        databaseURL: "https://projares-b990d.firebaseio.com",
+        storageBucket: "projares-b990d.appspot.com",
+        messagingSenderId: "811073714607"
+    };
 
-    // firebase.initializeApp(config);
+    firebase.initializeApp(config);
+    var database = firebase.database();
    
-    var thumbsUp = 0;
-    var thmbsdwn =0;
-
-    // $(".thumbsUpBtn").on("click", function() {
-    // thmbsup++;
-    // database.ref().set({
-    // thumbsUp_counter: thumbsUp
-    // });
-    // });
-
-    // database.ref().on("value", function(snapshot) {
-
-    //     console.log(snapshot.val());
-
-    //     $("#thumbsUp-value").html(snapshot.val().thumbsUp_counter);
-
-    //     thumbsUp_counter = snapshot.val().thumbsUp;
-
-    //     }, function(errorObject) {
-
-    //         console.log("The read failed: " + errorObject.code);
-    // });
-
-    // $("#thumbsDwnBtn").on("click", function() {
-    //     thmbsdwn++;
-    //     database.ref().set({
-    //         thmbsdwn_counter: thmbsdwn
-    //     });
-    // });
-
-    // database.ref().on("value", function(snapshot) {
-
-    //     console.log(snapshot.val());
-
-    //     $("#thmbsdwn_value").html(snapshot.val().thmbsdwn_counter);
-
-    //     thmbsdwn_counter = snapshot.val().thmbsdwn;
-
-    // }, function(errorObject) {
-
-    //     console.log("The read failed: " + errorObject.code);
-    // });
-
+    var counter = {
+        thumbsUp: 0,
+        thumbsDwn: 0
+    };
+    
 
     $(".movie-button").on("click", function(event) {
+        event.preventDefault();
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -150,17 +114,13 @@ $(document).ready(function() {
 
 
     $(document).on("click", ".thmbsup", function() {
-        thumbsUp++;
-        database.ref().set({
-        thumbsUp_counter: thumbsUp
-        });
+        counter.thumbsUp++;
+        database.ref().set(counter);
     });
 
     $(document).on("click", ".thmbsdwn", function() {
-        thmbsdwn++;
-        database.ref().set({
-        thmbsdwn_counter: thmbsdwn
-        });
+        counter.thumbsDwn++;
+        database.ref().set(counter);
     });
 
 });
