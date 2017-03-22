@@ -9,10 +9,10 @@ $(document).ready(function() {
         messagingSenderId: "811073714607"
     };
 
-    firebase.initializeApp(config);
+    // firebase.initializeApp(config);
     // var database = firebase.database();
 
-    initApp = function() {
+
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
@@ -35,22 +35,18 @@ $(document).ready(function() {
                 });
             } else {
                 // User is signed out.
-                $('#sign-in-status').text("Signed out");
+                //$('#sign-in-status').text("Signed out");
                 // document.getElementById('sign-in').textContent = 'Sign in';
-                $('#account-details').text("null");
+                //$('#account-details').text("null");
             }
         }, function(error) {
             console.log(error);
         });
-    };
+
     //on click listener to unauth the user
     $(document).on("click", ".signOutBtn", function() {
         firebase.auth().signOut().then(function() {
-            console.log("I am Signed out");
-            $(".login-container").removeClass("invisible");
-            $(".user-container").addClass("invisible");
-            $(".movieFinder").addClass("invisible");
-            window.open("/");
+            window.location.replace("index.html");
         }).catch(function(error) {
             // An error happened.
         });
