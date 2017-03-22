@@ -22,18 +22,18 @@ $(document).ready(function() {
                 userPreference.bookmarkAdded = snapshot.val().bookmarkAdded;
             }
             userInitialized = 1;
-            console.log(userPreference.bookmarkAdded + " array data");
-            console.log(userPreference.bookmarkAdded.length + " array length");
+            //console.log(userPreference.bookmarkAdded + " array data");
+            //console.log(userPreference.bookmarkAdded.length + " array length");
     });
 
     function checkUserInitialized(){
-        console.log("init called");
+        //console.log("init called");
         if(userInitialized == 0){
             setTimeout(checkUserInitialized, 1000);
         }
         else
         {
-            console.log("init completed");
+            //console.log("init completed");
             displayMovie();
         }
     }
@@ -141,8 +141,15 @@ $(document).ready(function() {
     $(document).on("click", ".bkMark", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
-        $(".removeBkMark").show();
-        $(this).hide();
+
+        //console.log(userPreference.bookmarkAdded);
+        //console.log(inArray(userPreference.bookmarkAdded,movieName));
+        if (inArray(userPreference.bookmarkAdded,movieName)) {
+            $(".removeBkMark").show();
+            $(this).hide();
+        } else {
+            $(this).show();
+        }
         userPreference.bookmarkAdded.push({
             id: movieId, 
             name: movieName
@@ -153,11 +160,21 @@ $(document).ready(function() {
 
     $(document).on("click", ".removeBkMark", function() {
         var movieId = $(this).attr("data-link");
-        remove(userPreference.bookmarkAdded,movieId);
         $(".bkMark").show();
         $(this).hide();
+        remove(userPreference.bookmarkAdded,movieId);
         database.ref().set(userPreference);
     });
+
+    //function to check if the bookmark array has the movie already
+    function inArray(arr,item){
+    var count=arr.length;
+        for(var i=0;i<count;i++)
+        {
+            if(arr[i].name===item){return true;}
+        }
+    return false;
+    }
 
     // function to remove the element from array 
     function remove(arr, item) {
@@ -169,15 +186,15 @@ $(document).ready(function() {
     }
 
     function displayMovie() {
-        console.log("display called");
+        //console.log("display called");
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<button>");
             $('#movie-bookmarked').append(BookMarkDiv);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
-            console.log(userPreference.bookmarkAdded[i].name);
+            //console.log(userPreference.bookmarkAdded[i].name);
             BookMarkDiv.addClass("movie-button action");
         }
-        console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
+        //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
     }
     checkUserInitialized();
 
