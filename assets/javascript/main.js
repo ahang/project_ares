@@ -83,17 +83,18 @@ $(document).ready(function() {
                 $("#movie-view").append(netflixBtn);
 
                 var bookmark = $("<button>");
-                bookmark.addClass("thmbsup btn btn-success");
+                bookmark.addClass("bkMark btn btn-success");
                 bookmark.attr("data-link", response.ITEMS[0][4]);
                 bookmark.attr("data-name", response.ITEMS[0][1]);
                 bookmark.text("Bookmark It");
                 $("#movie-view").append(bookmark);
 
                 var removeBookmark = $("<button>");
-                removeBookmark.addClass("thmbsdwn btn btn-warning");
+                removeBookmark.addClass("removeBkMark btn btn-warning");
                 removeBookmark.attr("data-link", response.ITEMS[0][4]);
                 removeBookmark.text("Remove Bookmark");
                 $("#movie-view").append(removeBookmark);
+                $(".removeBkMark").hide();
             });
         };
 
@@ -115,19 +116,24 @@ $(document).ready(function() {
     });
 
 
-    $(document).on("click", ".thmbsup", function() {
+    $(document).on("click", ".bkMark", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
+        $(".removeBkMark").show();
+        $(this).hide();
         userPreference.bookmarkAdded.push({
             id: movieId, 
             name: movieName
         });
         database.ref().set(userPreference);
+
     });
 
-    $(document).on("click", ".thmbsdwn", function() {
+    $(document).on("click", ".removeBkMark", function() {
         var movieId = $(this).attr("data-link");
         remove(userPreference.bookmarkAdded,movieId);
+        $(".bkMark").show();
+        $(this).hide();
         database.ref().set(userPreference);
     });
 
