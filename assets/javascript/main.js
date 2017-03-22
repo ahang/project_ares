@@ -93,8 +93,8 @@ $(document).ready(function() {
                 method: 'GET'
             }).then(function(response) {
                 $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1] + "</p>");
-                $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>');
-                $("#movie-view").append("<br> Plot: " + response.ITEMS[0][3] + "<br>");
+                $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>').addClass('imageStyle');
+                $("#movie-view").append("<br><br> Plot: " + response.ITEMS[0][3] + "<br>");
 
                 var netflixBtn = $("<button>");
                 netflixBtn.addClass("btn netflixBtn");

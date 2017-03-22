@@ -262,10 +262,14 @@ navbar.less:232
 	width: 50%;
 	margin: 0 auto;
 }
+	
 .submit-button { 
 	margin-top: 20px
 }
 
+.imageStyle {
+	margin: 0 auto;
+}
 
 
 
