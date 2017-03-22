@@ -56,16 +56,19 @@ $(document).ready(function() {
         var discoverURL = "discover/movie";
         // popularity parameter
         var popularity = "?sort_by=popularity.desc&api_key=";
-
+        // https://api.themoviedb.org/4/list/572?page=1&api_key=395604c82b2663c214732886fe58d756
         // full query request, includes: language is English, popular, non-adult movies, and action genre
-        var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=5&with_genres=28";
-
+        function randomNumber() {
+            return Math.floor(Math.random() * 100);
+        }
+        var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + randomNumber() + "&with_genres=28";
+        // var fullQUERY = "https://api.themoviedb.org/4/list/572?page=1&api_key=" + apiKey;
         // Here we construct our URL
-        var queryURL = fullQUERY;
+        //var queryURL = fullQUERY;
 
         //this will call theMovieDB movie list
         $.ajax({
-            url: queryURL,
+            url: fullQUERY,
             method: 'GET'
         }).then(function(response) {
             // random number generator

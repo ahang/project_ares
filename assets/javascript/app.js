@@ -23,10 +23,10 @@ $(document).ready(function() {
                 var uid = user.uid;
                 var providerData = user.providerData;
                 user.getToken().then(function(accessToken) {
-                    $(".login-container").addClass("invisible"); //hides login container if user is logged in
-                    $(".signOut").removeClass("invisible"); //hides login container if user is logged in
-                    $(".user-container").removeClass("invisible"); //unhides the user container
-                    $(".movieFinder").removeClass("invisible"); //unhides the user container
+                    // $(".login-container").addClass("invisible"); //hides login container if user is logged in
+                    // $(".signOut").removeClass("invisible"); //hides login container if user is logged in
+                    // $(".user-container").removeClass("invisible"); //unhides the user container
+                    // $(".movieFinder").removeClass("invisible"); //unhides the user container
                     $(".userName").html("Welcome " + displayName); //displays Welcome username
                     var signOutBtn = $("<button>");
                     signOutBtn.addClass("signOutBtn btn btn-danger");
@@ -52,8 +52,4 @@ $(document).ready(function() {
         });
     });
 
-    window.addEventListener('load', function() {
-        event.preventDefault();
-        initApp()
-    });
 });
