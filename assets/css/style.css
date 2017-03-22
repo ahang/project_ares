@@ -270,8 +270,9 @@ navbar.less:232
 
 
 .footer:hover {
-	height: 5%;
-	transition: height .5s ease;
+	/*font-weight: 900;*/
+	font-size: 12px;
+	transition: font-size .2s ease;
 }
 
 /* CONTACT FORM */
