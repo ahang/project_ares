@@ -5,8 +5,9 @@
 ### Created By
 * [Liam Fox](https://github.com/FoxMessenger)
 * [Andy Hang](https://github.com/ahang)
-* [Louise Nyambati](https://github.com/LouiseNyambati)
 * [Shreya Kondilya](https://github.com/skondilya)
+* [Louise Nyambati](https://github.com/LouiseNyambati)
+
 
 ### Objective
 To assist users of Netflix to narrow down a good movie based on IMDB Rating of 6 or higher. More movie time and less browse time
