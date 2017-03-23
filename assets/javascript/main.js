@@ -53,7 +53,6 @@ $(document).ready(function() {
     $(".movie-button").on("click", function(event) {
         var genre = $(this).data("genre");
         console.log(genre);
-        debugger;
 
         clearInfo();
         // Preventing the submit button from trying to submit the form
@@ -92,6 +91,8 @@ $(document).ready(function() {
 
                 var randomOrder = randomOrder();
                 var title = response.results[randomOrder].title;
+                title = decodeURIComponent(title);
+
 
                 flixRoulette(title);
             });
@@ -104,8 +105,7 @@ $(document).ready(function() {
     $(".movie-button.action").on("click", function(event) {
         event.preventDefault();
         clearInfo();
-        debugger;
-        buttonClickHandler();
+       // buttonClickHandler();
 
             
     }) // --- end .movie-button.action.onClick
@@ -145,7 +145,8 @@ $(document).ready(function() {
                 var bookmark = $("<button>");
                 bookmark.addClass("bkMark btn btn-success");
                 bookmark.attr("data-link", response.ITEMS[0][4]);
-                bookmark.attr("data-name", response.ITEMS[0][1]);
+                var sanitizedMovieName = decodeURIComponent(response.ITEMS[0][1]);
+                bookmark.attr("data-name", sanitizedMovieName);
                 bookmark.text("Bookmark It");
                 $("#movie-view").append(bookmark);
 
@@ -179,6 +180,7 @@ $(document).ready(function() {
     $(document).on("click", ".bkMark", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
+        movieName = movieName.replace('&#39;','\'')
         
         if (inArray(userPreference.bookmarkAdded,movieName)) {
             $(".removeBkMark").show();
@@ -225,11 +227,13 @@ $(document).ready(function() {
     function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<button>");
+            BookMarkDiv.addClass("movie-button netflixBtn action");
+            BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
             $('#movie-bookmarked').append(BookMarkDiv);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
-            BookMarkDiv.addClass("movie-button action");
-        };
-        
+            //console.log(userPreference.bookmarkAdded[i].name);
+        }
+        //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
     };
     
     checkUserInitialized();
