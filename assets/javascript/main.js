@@ -121,7 +121,7 @@ $(document).ready(function() {
                 $(".removeBkMark").hide();
             }).fail (function() {
                 clearInfo();
-                $("#movie-view").html("The selected movie we attempted to search is not available on netflix. Please try again");
+                $("#movie-view").html("The selected movie we attempted to search is not available on <b>Netflix</b>. Please try again");
             });
         };
 
