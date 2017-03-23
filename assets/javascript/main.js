@@ -46,8 +46,8 @@ $(document).ready(function() {
         $(formattedButtonName).on("click", function(event) {
             event.preventDefault();
             clearInfo();
-
-    }
+        });
+    };
     
    
     $(".movie-button").on("click", function(event) {
@@ -91,8 +91,7 @@ $(document).ready(function() {
 
                 flixRoulette(title);
             });
-        })
-    }; // --- end function buttonClickHandler
+        }); // --- end function buttonClickHandler
     
 
 // ========== 
@@ -110,7 +109,8 @@ $(document).ready(function() {
 // END OF ACTION QUERY 
 // ==========
         
-
+    // GENRES
+    // action: 28, comedy: 35, sci-fi: 878, romance: 10749, horror: 27, drama: 18
 
 
     function flixRoulette(movieTitle) {
