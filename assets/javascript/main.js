@@ -40,7 +40,6 @@ $(document).ready(function() {
     
    
     $(".movie-button").on("click", function(event) {
-        event.preventDefault();
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -120,6 +119,9 @@ $(document).ready(function() {
                 removeBookmark.text("Remove Bookmark");
                 $("#movie-view").append(removeBookmark);
                 $(".removeBkMark").hide();
+            }).fail (function() {
+                clearInfo();
+                $("#movie-view").html("The selected movie we attempted to search is not available on netflix. Please try again");
             });
         };
 
