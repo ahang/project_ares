@@ -29,15 +29,44 @@ LIAM
 
 ANDREW
 // PROJECT MANAGEMENT
-	// 
+	// How did your team built a list of tasks and shared duties?
+		We designed the flow of our project based on the API's we wanted to use, based on that we broke down the list of tasks and shared duties. 
+	// How did your team handle communications?
+		We utilized Slack to handle communications
+	// What tools did you use for project management?
+		We used Trello for project management. 
+	// What was the most difficult part of project management?
+		The most difficult part of project management is properly delegating the correct amount of work based on people's availability outside of class. 
 
 
 DEMONSTRATION
+
 // INTRO PAGE / LOGIN
-	ANDY 
+	ANDY — speaks briefly about how the login button works. Follows through with clicking it.
+
+// FUNCTIONALITY / MAIN PAGE
+	SHREYA - speak briefly about the layout of the page. 
+			 2 sides to the page
+			 	left side 
+			 		has the logo and brand
+			 		has the buttons to click
+			 	right side
+			 		has the about
+			 		has the contact
+			 		has the community favourites
+			 		for the home page, it has your name and the signout button
+
+	LOUISE - speak about the functionality of the links at the top
+			 on the left side if you click 
+			 	- the about section will take you to an information page about us
+			 	- the contact section takes you to an email form where you can send us an email
+	SHREYA 		- the Loves section shows the community favourited movies
+
+	LIAM 	- brings us back to the main page by click on the logo button
+			explains the buttons on the main page.
 
 
-LANDING PAGE ---- functionality?
+LANDING PAGE ---- functionality
 LIAM 
 
 LOVES - 
@@ -49,7 +78,23 @@ LOUISE
 WAS MOST DIFFICULT
 LOGIN 
 API out of date
-Price of other 
+Price of other APIS
+Limited usage of freemium APIs
+
+EXTRA FEATURES
+User profile
+tracking movies given
+tracking movies they liked, and tailoring the algorithm to give them movies dependent on what they have liked
+Create a Modal instead of popping up on the second half of the screen
+make the image clickable, instead of just the button
+
+START OVER
+Not spend as much time for the login and probably not use the same framework
+Better psuedo code 
+Deviate actual tasks better
+Not use Flixster API
 
 
-2m	Questions
+
+
+

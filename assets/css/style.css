@@ -199,3 +199,17 @@ h1 {
 .imageStyle {
 	margin: 0 auto;
 }
+
+.click-below { 
+	font-weight: bold;
+	text-decoration: none;
+ }
+
+.item:hover a p.new-label span{
+  display: none;
+  text-decoration: none;
+}
+.item:hover a p.new-label:after{
+  content: 'YEAH... IF YOU COULD JUST CLICK BELOW... THAT BE GREAT.';
+  text-decoration: none;
+}
