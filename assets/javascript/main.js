@@ -190,19 +190,19 @@ $(document).ready(function() {
         var movieName = $(this).attr("data-name");
         movieName = movieName.replace('&#39;','\'')
         
-        if (inArray(userPreference.bookmarkAdded,movieName)) {
-            $(".removeBkMark").show();
-            $(this).hide();
-        } else {
-            $(this).show();
-        };
-        
         userPreference.bookmarkAdded.push({
             id: movieId, 
             name: movieName
         }); // --- userPreference
         
         database.ref().set(userPreference);
+
+        if (inArray(userPreference.bookmarkAdded,movieName)) {
+            $(".removeBkMark").show();
+            $(this).hide();
+        } else {
+            $(this).show();
+        };
 
     }); // --- document.on.click bkMark
 
