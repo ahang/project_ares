@@ -39,18 +39,22 @@ $(document).ready(function() {
 
     } // --- end function checkUserInitialize
 
-    function buttonClickHandler(buttonName, genre) {
-        var formattedButtonName = "." + buttonName;
-        var genreType = genre;
+    // function buttonClickHandler(buttonName, genre) {
+    //     var formattedButtonName = "." + buttonName;
+    //     var genreType = genre;
 
-        $(formattedButtonName).on("click", function(event) {
-            event.preventDefault();
-            clearInfo();
-        });
-    };
+    //     $(formattedButtonName).on("click", function(event) {
+    //         event.preventDefault();
+    //         clearInfo();
+    //     });
+    // };
     
    
     $(".movie-button").on("click", function(event) {
+        var genre = $(this).data("genre");
+        console.log(genre);
+        debugger;
+
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
