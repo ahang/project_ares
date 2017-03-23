@@ -1,215 +1,177 @@
 /*  using OpenSans because it's nice */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 }
-
 html {
-	width: 100%;
-	height: 100%;
-	/*overflow: hidden;*/
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
 }
-
 body {
-	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
-	width: 100%;
-	height: 100%;
-	font-family: 'Open Sans', sans-serif;
-	background: #708090;
-/*	background-image: url("../images/692438.jpg");*/
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background: #708090;
+    /*	background-image: url("../images/692438.jpg");*/
 }
-
 .jumbotron {
-	color: white;
-	font-size: 30px;
-	background: rgba(0,0,0,0);
-	text-align: right;
-	margin-right: 20px;
-	height: 5%;
+    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0);
+    text-align: right;
+    margin-right: 20px;
+    height: 5%;
 }
-
 a {
-	color: white; 
-	text-decoration: none
+    color: white;
+    text-decoration: none
 }
-
-
 .navbar-default .navbar-brand {
-	transition: .5s ease;
+    transition: .5s ease;
 }
-
 .navbar-default .navbar-brand:hover {
-	background-color: tomato;
-	height: 70px;
-	color: white;
-	z-index: -5;
-	transition: height .5s ease;
-
+    background-color: tomato;
+    height: 70px;
+    color: white;
+    z-index: -5;
+    transition: height .5s ease;
 }
 .logo {
-	color: white;
-	background: tomato;
-	width: 350px;
-	padding: 10px;
-	text-align: right;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	cursor: pointer;
+    color: white;
+    background: tomato;
+    width: 350px;
+    padding: 10px;
+    text-align: right;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
 }
-
 p.light {
-	font-weight: 100;
+    font-weight: 100;
 }
 p.normal {
-	font-weight: 300;
+    font-weight: 300;
 }
 p.heavy {
-	font-weight: 900;
+    font-weight: 900;
 }
-
 h1 {
-	text-align: center;
-	color:tomato;
+    text-align: center;
+    color: tomato;
 }
-
-.introText { 
-	color: white;
-	font-size: 50px;
-	margin: auto 0px; 
+.introText {
+    color: white;
+    font-size: 50px;
+    margin: auto 0px;
 }
-
 .login-btn {
-	color: white;
-	font-size: 30px;
+    color: white;
+    font-size: 30px;
 }
-
-#firebaseui-auth-container{
-	width: 400px;
-	background: rgba(0,0,0,0);
-	border: rgba(0,0,0,0);
+#firebaseui-auth-container {
+    width: 400px;
+    background: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
 }
-
-.signOut 
-{
-	
-	color: white;
-	font-size: 30px;
-	
+.signOut {
+    color: white;
+    font-size: 30px;
 }
-
 .userName {
-	font-weight: bold;
-	margin: 0 auto;
-	color: white;
-	font-size: 15px;
+    font-weight: bold;
+    margin: 0 auto;
+    color: white;
+    font-size: 15px;
 }
-
-.invisible {display: none;}
-	
+.invisible {
+    display: none;
+}
 .movieFinder {
- 	text-align: left;
-	margin: 0 auto;
-	font-size: 20px;
-	color: #fff;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #fff;
 }
-
-
 .max-width {
-	max-width: 500px;
+    max-width: 500px;
 }
 .movie-button {
-	text-align: left;
-	padding: none;
-	border: none;
-	background: none;
-
+    text-align: left;
+    padding: none;
+    border: none;
+    background: none;
 }
-
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-	color: white;
+    color: white;
 }
-
 .navbar-default .navbar-brand {
-	background-color: tomato;
-	padding: 10px;
+    background-color: tomato;
+    padding: 10px;
 }
-
 .navbar {
-	color: white;
-	padding: none;
-	border: none;
-	background: none;
+    color: white;
+    padding: none;
+    border: none;
+    background: none;
 }
-
 .netflix-size {
-	width: 65px;
-	height: 20px;
+    width: 65px;
+    height: 20px;
 }
-
-
-.aboutText { 
-	color: white;
-	font-size: 50px;
-	margin: auto 0px; 
+.aboutText {
+    color: white;
+    font-size: 50px;
+    margin: auto 0px;
 }
-
-.footerLink, .footerLink:hover {
-	text-decoration: none;
-	color: white;
+.footerLink,
+.footerLink:hover {
+    text-decoration: none;
+    color: white;
 }
-
 .footer {
-	color: white;
-	font-size: 10px;
-	text-align: center;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	transition: font-size .5s ease;
-	line-height: 40px;
-	background: tomato;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: font-size .5s ease;
+    line-height: 40px;
+    background: tomato;
 }
-
-
-
 .footer:hover {
-	font-size: 12px;
-	transition: font-size .2s ease;
+    font-size: 12px;
+    transition: font-size .2s ease;
 }
-
 /* CONTACT FORM */
 
-
 .form-group {
-	width: 50%;
-	margin: 0 auto;
+    width: 50%;
+    margin: 0 auto;
 }
-
-.submit-button { 
-	margin-top: 20px
+.submit-button {
+    margin-top: 20px
 }
-
 .imageStyle {
-	margin: 0 auto;
+    margin: 0 auto;
 }
-
-.click-below { 
-	font-weight: bold;
-	text-decoration: none;
- }
-
-.item:hover a p.new-label span{
-  display: none;
-  text-decoration: none;
+.click-below {
+    font-weight: bold;
+    text-decoration: none;
 }
-.item:hover a p.new-label:after{
-  content: 'YEAH... IF YOU COULD JUST CLICK BELOW... THAT BE GREAT.';
-  text-decoration: none;
+.item:hover a p.new-label span {
+    display: none;
+    text-decoration: none;
+}
+.item:hover a p.new-label:after {
+    content: 'YEAH... IF YOU COULD JUST CLICK BELOW... THAT BE GREAT.';
+    text-decoration: none;
 }
