@@ -36,6 +36,7 @@ $(document).ready(function() {
             //console.log("init completed");
             displayMovie();
         }
+
     } // --- end function checkUserInitialize
 
     function buttonClickHandler(buttonName, genre) {
@@ -45,6 +46,12 @@ $(document).ready(function() {
         $(formattedButtonName).on("click", function(event) {
             event.preventDefault();
             clearInfo();
+
+    }
+    
+   
+    $(".movie-button").on("click", function(event) {
+        clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
             event.preventDefault();
@@ -118,34 +125,38 @@ $(document).ready(function() {
             },
                 url: unogsUrl,
                 method: 'GET'
-        }).then(function(response) {
-            $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1] + "</p>");
-            $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>').addClass('imageStyle');
-            $("#movie-view").append("<br><br> Plot: " + response.ITEMS[0][3] + "<br>");
+            }).then(function(response) {
+                $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1] + "</p>");
+                $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>').addClass('imageStyle');
+                $("#movie-view").append("<br><br> Plot: " + response.ITEMS[0][3] + "<br>");
 
-            var netflixBtn = $("<button>");
-            netflixBtn.addClass("btn netflixBtn");
-            netflixBtn.attr("data-link", response.ITEMS[0][4]);
-            console.log(netflixBtn);
-            netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
-            //Netflix.addText("View it on Netflix");
-            $("#movie-view").append(netflixBtn);
+                var netflixBtn = $("<button>");
+                netflixBtn.addClass("btn netflixBtn");
+                netflixBtn.attr("data-link", response.ITEMS[0][4]);
+                console.log(netflixBtn);
+                netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
+                //Netflix.addText("View it on Netflix");
+                $("#movie-view").append(netflixBtn);
 
-            var bookmark = $("<button>");
-            bookmark.addClass("bkMark btn btn-success");
-            bookmark.attr("data-link", response.ITEMS[0][4]);
-            bookmark.attr("data-name", response.ITEMS[0][1]);
-            bookmark.text("Bookmark It");
-            $("#movie-view").append(bookmark);
+                var bookmark = $("<button>");
+                bookmark.addClass("bkMark btn btn-success");
+                bookmark.attr("data-link", response.ITEMS[0][4]);
+                bookmark.attr("data-name", response.ITEMS[0][1]);
+                bookmark.text("Bookmark It");
+                $("#movie-view").append(bookmark);
 
-            var removeBookmark = $("<button>");
-            removeBookmark.addClass("removeBkMark btn btn-warning");
-            removeBookmark.attr("data-link", response.ITEMS[0][4]);
-            removeBookmark.text("Remove Bookmark");
-            $("#movie-view").append(removeBookmark);
-            $(".removeBkMark").hide();
-        }); // --- .then(function(response))
-    }; // --- end function flixRoulette
+                var removeBookmark = $("<button>");
+                removeBookmark.addClass("removeBkMark btn btn-warning");
+                removeBookmark.attr("data-link", response.ITEMS[0][4]);
+                removeBookmark.text("Remove Bookmark");
+                $("#movie-view").append(removeBookmark);
+                $(".removeBkMark").hide();
+            }).fail (function() {
+                clearInfo();
+                $("#movie-view").html("The selected movie we attempted to search is not available on netflix. Please try again");
+            }); // --- end fail
+        }; // --- end function flixRoulette
+
 
         function clearInfo() {
             $("movie-view").empty;
