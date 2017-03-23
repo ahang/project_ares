@@ -147,13 +147,13 @@ $(document).ready(function() {
                 bookmark.attr("data-link", response.ITEMS[0][4]);
                 var sanitizedMovieName = decodeURIComponent(response.ITEMS[0][1]);
                 bookmark.attr("data-name", sanitizedMovieName);
-                bookmark.text("Bookmark It");
+                bookmark.text("HELL YEAH");
                 $("#movie-view").append(bookmark);
 
                 var removeBookmark = $("<button>");
                 removeBookmark.addClass("removeBkMark btn btn-warning");
                 removeBookmark.attr("data-link", response.ITEMS[0][4]);
-                removeBookmark.text("Remove Bookmark");
+                removeBookmark.text("NOPE");
                 $("#movie-view").append(removeBookmark);
                 $(".removeBkMark").hide();
             }).fail (function() {
@@ -176,6 +176,14 @@ $(document).ready(function() {
             
     }); // --- end document.on.click netflixBtn
 
+
+    $(document).on("click", ".loves", function() {
+
+        var name = $(this).attr("data-link");
+        var netflixURL = "https://www.netflix.com/title/" + name;
+            window.open(netflixURL);
+            
+    });
 
     $(document).on("click", ".bkMark", function() {
         var movieId = $(this).attr("data-link");
@@ -226,11 +234,13 @@ $(document).ready(function() {
 
     function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
-            var BookMarkDiv = $("<button>");
-            BookMarkDiv.addClass("movie-button netflixBtn action");
+            var BookMarkDiv = $("<p>");
+            BookMarkDiv.addClass("loves");
             BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
-            $('#movie-bookmarked').append(BookMarkDiv);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
+            $('#movie-bookmarked').append(BookMarkDiv);
+            // var br = $("<br>");
+            // $('#movie-bookmarked').append("<br>");
             //console.log(userPreference.bookmarkAdded[i].name);
         }
         //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
