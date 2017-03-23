@@ -39,18 +39,22 @@ $(document).ready(function() {
 
     } // --- end function checkUserInitialize
 
-    function buttonClickHandler(buttonName, genre) {
-        var formattedButtonName = "." + buttonName;
-        var genreType = genre;
+    // function buttonClickHandler(buttonName, genre) {
+    //     var formattedButtonName = "." + buttonName;
+    //     var genreType = genre;
 
-        $(formattedButtonName).on("click", function(event) {
-            event.preventDefault();
-            clearInfo();
-        });
-    };
+    //     $(formattedButtonName).on("click", function(event) {
+    //         event.preventDefault();
+    //         clearInfo();
+    //     });
+    // };
     
    
     $(".movie-button").on("click", function(event) {
+        var genre = $(this).data("genre");
+        console.log(genre);
+        debugger;
+
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -71,7 +75,7 @@ $(document).ready(function() {
             function randomNumber() {
                 return Math.floor(Math.random() * 100);
             }
-            var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + randomNumber() + "&with_genres=" + genreType;
+            var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + randomNumber() + "&with_genres=" + genre;
             // var fullQUERY = "https://api.themoviedb.org/4/list/572?page=1&api_key=" + apiKey;
             // Here we construct our URL
             //var queryURL = fullQUERY;
