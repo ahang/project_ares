@@ -7,7 +7,8 @@ $(document).ready(function() {
         databaseURL: "https://projares-b990d.firebaseio.com",
         storageBucket: "projares-b990d.appspot.com",
         messagingSenderId: "811073714607"
-    };
+    }; // --- end config
+
 
     firebase.initializeApp(config);
     var database = firebase.database();
@@ -15,16 +16,15 @@ $(document).ready(function() {
     var userInitialized = 0;
     var userPreference = {
         bookmarkAdded : []
-    };
+    }; // --- end userPreference
 
     database.ref().on("value", function(snapshot) {
-            if (snapshot.child("bookmarkAdded").exists()){
-                userPreference.bookmarkAdded = snapshot.val().bookmarkAdded;
-            }
-            userInitialized = 1;
-            //console.log(userPreference.bookmarkAdded + " array data");
-            //console.log(userPreference.bookmarkAdded.length + " array length");
-    });
+        if (snapshot.child("bookmarkAdded").exists()){
+            userPreference.bookmarkAdded = snapshot.val().bookmarkAdded;
+        }
+        
+        userInitialized = 1;
+    }); // --- end database
 
     function checkUserInitialized(){
         //console.log("init called");
@@ -36,62 +36,93 @@ $(document).ready(function() {
             //console.log("init completed");
             displayMovie();
         }
-    }
+
+    } // --- end function checkUserInitialize
+
+    function buttonClickHandler(buttonName, genre) {
+        var formattedButtonName = "." + buttonName;
+        var genreType = genre;
+
+        $(formattedButtonName).on("click", function(event) {
+            event.preventDefault();
+            clearInfo();
+        });
+    };
     
    
     $(".movie-button").on("click", function(event) {
-        event.preventDefault();
         clearInfo();
         // Preventing the submit button from trying to submit the form
         // We're optionally using a form so the user may hit Enter to search instead of clicking the button
-        event.preventDefault();
+            event.preventDefault();
 
-        // Here we grab the text from the input box
-        var movie = $("#movie-input").val();
-        var apiKey = "395604c82b2663c214732886fe58d756";
-        var apiReadAccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTU2MDRjODJiMjY2M2MyMTQ3MzI4ODZmZTU4ZDc1NiIsInN1YiI6IjU4YzljYzJkYzNhMzY4NDEyYTAwMDQ3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B6rxV4ke7MA56btQq1wNVTJYcjPx335Oi7C4gNArQF0";
-        // the website page
-        var apiRequest = "https://api.themoviedb.org/";
-        // discover a movie by a parameter
-        var discoverURL = "discover/movie";
-        // popularity parameter
-        var popularity = "?sort_by=popularity.desc&api_key=";
-        // https://api.themoviedb.org/4/list/572?page=1&api_key=395604c82b2663c214732886fe58d756
-        // full query request, includes: language is English, popular, non-adult movies, and action genre
-        function randomNumber() {
-            return Math.floor(Math.random() * 100);
-        }
-        var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + randomNumber() + "&with_genres=28";
-        // var fullQUERY = "https://api.themoviedb.org/4/list/572?page=1&api_key=" + apiKey;
-        // Here we construct our URL
-        //var queryURL = fullQUERY;
-
-        //this will call theMovieDB movie list
-        $.ajax({
-            url: fullQUERY,
-            method: 'GET'
-        }).then(function(response) {
-            // random number generator
-            function randomOrder() {
-                return Math.floor(Math.random() * 20);
+            // Here we grab the text from the input box
+            var movie = $("#movie-input").val();
+            var apiKey = "395604c82b2663c214732886fe58d756";
+            var apiReadAccessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTU2MDRjODJiMjY2M2MyMTQ3MzI4ODZmZTU4ZDc1NiIsInN1YiI6IjU4YzljYzJkYzNhMzY4NDEyYTAwMDQ3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B6rxV4ke7MA56btQq1wNVTJYcjPx335Oi7C4gNArQF0";
+            // the website page
+            var apiRequest = "https://api.themoviedb.org/";
+            // discover a movie by a parameter
+            var discoverURL = "discover/movie";
+            // popularity parameter
+            var popularity = "?sort_by=popularity.desc&api_key=";
+            // https://api.themoviedb.org/4/list/572?page=1&api_key=395604c82b2663c214732886fe58d756
+            // full query request, includes: language is English, popular, non-adult movies, and action genre
+            function randomNumber() {
+                return Math.floor(Math.random() * 100);
             }
+            var fullQUERY = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + randomNumber() + "&with_genres=" + genreType;
+            // var fullQUERY = "https://api.themoviedb.org/4/list/572?page=1&api_key=" + apiKey;
+            // Here we construct our URL
+            //var queryURL = fullQUERY;
 
-            var randomOrder = randomOrder();
-            var title = response.results[randomOrder].title;
-
-            flixRoulette(title);
-        });
-
-        function flixRoulette(movieTitle) {
-            var searchParam = encodeURIComponent(movieTitle);
-
-            var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and"
-
+            //this will call theMovieDB movie list
             $.ajax({
-                beforeSend: function(request) {
-                    request.setRequestHeader("X-Mashape-Key", "EnvSlMBKiYmsh28JzdBpJ2QcZcuyp1BtD76jsn5PZhgx2gcXDq");
-                    request.setRequestHeader("Accept", "application/json");
-                },
+                url: fullQUERY,
+                method: 'GET'
+            }).then(function(response) {
+                // random number generator
+                function randomOrder() {
+                    return Math.floor(Math.random() * 20);
+                }
+
+                var randomOrder = randomOrder();
+                var title = response.results[randomOrder].title;
+
+                flixRoulette(title);
+            });
+        }); // --- end function buttonClickHandler
+    
+
+// ========== 
+// BEGINNING OF ACTION QUERY 
+// ==========
+    $(".movie-button.action").on("click", function(event) {
+        event.preventDefault();
+        clearInfo();
+        debugger;
+        buttonClickHandler();
+
+            
+    }) // --- end .movie-button.action.onClick
+// ========== 
+// END OF ACTION QUERY 
+// ==========
+        
+    // GENRES
+    // action: 28, comedy: 35, sci-fi: 878, romance: 10749, horror: 27, drama: 18
+
+
+    function flixRoulette(movieTitle) {
+        var searchParam = encodeURIComponent(movieTitle);
+
+        var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and";
+
+        $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader("X-Mashape-Key", "EnvSlMBKiYmsh28JzdBpJ2QcZcuyp1BtD76jsn5PZhgx2gcXDq");
+                request.setRequestHeader("Accept", "application/json");
+            },
                 url: unogsUrl,
                 method: 'GET'
             }).then(function(response) {
@@ -120,46 +151,46 @@ $(document).ready(function() {
                 removeBookmark.text("Remove Bookmark");
                 $("#movie-view").append(removeBookmark);
                 $(".removeBkMark").hide();
-            });
-        };
+            }).fail (function() {
+                clearInfo();
+                $("#movie-view").html("The selected movie we attempted to search is not available on netflix. Please try again");
+            }); // --- end fail
+        }; // --- end function flixRoulette
+
 
         function clearInfo() {
             $("movie-view").empty;
-        }
+        } // --- end function clearInfo
 
-    });
 
     $(document).on("click", ".netflixBtn", function() {
 
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
-        //console.log(netflixURL);
-
-        window.open(netflixURL);
-
-        //netflixWatch();
-    });
+            window.open(netflixURL);
+            
+    }); // --- end document.on.click netflixBtn
 
 
     $(document).on("click", ".bkMark", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
-
-        //console.log(userPreference.bookmarkAdded);
-        //console.log(inArray(userPreference.bookmarkAdded,movieName));
+        
         if (inArray(userPreference.bookmarkAdded,movieName)) {
             $(".removeBkMark").show();
             $(this).hide();
         } else {
             $(this).show();
-        }
+        };
+        
         userPreference.bookmarkAdded.push({
             id: movieId, 
             name: movieName
-        });
+        }); // --- userPreference
+        
         database.ref().set(userPreference);
 
-    });
+    }); // --- document.on.click bkMark
 
     $(document).on("click", ".removeBkMark", function() {
         var movieId = $(this).attr("data-link");
@@ -167,29 +198,27 @@ $(document).ready(function() {
         $(this).hide();
         remove(userPreference.bookmarkAdded,movieId);
         database.ref().set(userPreference);
-    });
+    }); // --- document.on.click removeBKMark
 
     //function to check if the bookmark array has the movie already
     function inArray(arr,item){
-    var count=arr.length;
-        for(var i=0;i<count;i++)
-        {
+        var count=arr.length;
+        for(var i=0;i<count;i++) {
             if(arr[i].name===item){return true;}
-        }
-    return false;
-    }
+        };
+        
+        return false;
+    };
 
-    // function to remove the element from array 
     function remove(arr, item) {
         for(var i = arr.length-1;i>=0;i--) {
-              if(arr[i].id === item) {
-                  arr.splice(i, 1);
-            }
-        }
-    }
+          if(arr[i].id === item) {
+              arr.splice(i, 1);
+          };
+        };
+    }; // --- end function remove
 
     function displayMovie() {
-        //console.log("display called");
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<button>");
             BookMarkDiv.addClass("movie-button netflixBtn action");
@@ -199,7 +228,12 @@ $(document).ready(function() {
             //console.log(userPreference.bookmarkAdded[i].name);
         }
         //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
-    }
+    };
+    
     checkUserInitialized();
-
+    
 });
+
+
+
+
