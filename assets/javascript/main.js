@@ -192,10 +192,11 @@ $(document).ready(function() {
         //console.log("display called");
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<button>");
+            BookMarkDiv.addClass("movie-button netflixBtn action");
+            BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
             $('#movie-bookmarked').append(BookMarkDiv);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
             //console.log(userPreference.bookmarkAdded[i].name);
-            BookMarkDiv.addClass("movie-button action");
         }
         //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
     }
