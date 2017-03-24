@@ -89,7 +89,7 @@ $(document).ready(function() {
 
             var randomOrder = randomOrder();
             var title = response.results[randomOrder].title;
-            title = decodeURIComponent(title);
+            // title = decodeURIComponent(title);
 
 
             flixRoulette(title);
@@ -97,8 +97,8 @@ $(document).ready(function() {
     }); // --- end function buttonClickHandler
 
 
-    // ========== 
-    // BEGINNING OF ACTION QUERY 
+    // ==========
+    // BEGINNING OF ACTION QUERY
     // ==========
     $(".movie-button.action").on("click", function(event) {
         event.preventDefault();
@@ -107,8 +107,8 @@ $(document).ready(function() {
 
 
     }) // --- end .movie-button.action.onClick
-    // ========== 
-    // END OF ACTION QUERY 
+    // ==========
+    // END OF ACTION QUERY
     // ==========
 
     // GENRES
@@ -122,7 +122,7 @@ $(document).ready(function() {
 
         $.ajax({
             beforeSend: function(request) {
-                request.setRequestHeader("X-Mashape-Key", "EnvSlMBKiYmsh28JzdBpJ2QcZcuyp1BtD76jsn5PZhgx2gcXDq");
+                request.setRequestHeader("X-Mashape-Key", "RRfJ8Skq6Hmsh65wXDWWw17W0Ap5p1fSpnIjsnKyPAn2lruy8c");
                 request.setRequestHeader("Accept", "application/json");
             },
             url: unogsUrl,
@@ -235,7 +235,7 @@ $(document).ready(function() {
     function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<p>");
-            BookMarkDiv.addClass("loves");
+            BookMarkDiv.addClass("loves btn");
             BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
             $('#movie-bookmarked').append(BookMarkDiv);
@@ -243,7 +243,7 @@ $(document).ready(function() {
             // $('#movie-bookmarked').append("<br>");
             //console.log(userPreference.bookmarkAdded[i].name);
         }
-        //console.log("display loop completed:"+userPreference.bookmarkAdded.length);       
+        //console.log("display loop completed:"+userPreference.bookmarkAdded.length);
     };
 
     checkUserInitialized();

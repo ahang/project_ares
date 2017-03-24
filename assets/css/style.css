@@ -181,3 +181,8 @@ h1 {
     content: 'YEAH... IF YOU COULD JUST CLICK BELOW... THAT BE GREAT.';
     text-decoration: none;
 }
+
+.loves {
+	display: list-item;
+	text-align: left;
+}
