@@ -12,7 +12,7 @@ $(document).ready(function() {
     // firebase.initializeApp(config);
     // var database = firebase.database();
 
-
+    //Tracking User State
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
