@@ -21,17 +21,15 @@ $(document).ready(function() {
     database.ref().on("value", function(snapshot) {
         if (snapshot.child("bookmarkAdded").exists()) {
             userPreference.bookmarkAdded = snapshot.val().bookmarkAdded;
-        }
 
+        }
         userInitialized = 1;
     }); // --- end database
 
     function checkUserInitialized() {
-        //console.log("init called");
         if (userInitialized == 0) {
             setTimeout(checkUserInitialized, 1000);
         } else {
-            //console.log("init completed");
             displayMovie();
         }
 
@@ -135,9 +133,7 @@ $(document).ready(function() {
             var netflixBtn = $("<button>");
             netflixBtn.addClass("btn netflixBtn");
             netflixBtn.attr("data-link", response.ITEMS[0][4]);
-            //console.log(netflixBtn);
             netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
-            //Netflix.addText("View it on Netflix");
             $("#movie-view").append(netflixBtn);
 
             var hellYeah = $("<button>");
@@ -151,9 +147,9 @@ $(document).ready(function() {
             var nopes = $("<button>");
             nopes.addClass("nope btn btn-warning");
             nopes.attr("data-link", response.ITEMS[0][4]);
+            nopes.attr("data-name", sanitizedMovieName);
             nopes.text("NOPE");
             $("#movie-view").append(nopes);
-            $(".nope").hide();
         }).fail(function() {
             clearInfo();
             $("#movie-view").html("The selected movie we attempted to search is not available on <b>Netflix</b>. Please try again");
@@ -174,76 +170,65 @@ $(document).ready(function() {
 
     }); // --- end document.on.click netflixBtn
 
-
     $(document).on("click", ".loves", function() {
-
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
         window.open(netflixURL);
 
     });
 
+    //function on hell yeah button click
     $(document).on("click", ".hellYh", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
-        movieName = movieName.replace('&#39;', '\'')
+        movieName = movieName.replace('&#39;', '\'');
+        //calling the user feedback function to set the firebase 
+        userFeedBack(1,movieId,movieName);
 
-        userPreference.bookmarkAdded.push({
-            id: movieId,
-            name: movieName
-        }); // --- userPreference
+    }); 
 
-        database.ref().set(userPreference);
-
-        if (inArray(userPreference.bookmarkAdded, movieName)) {
-            $(".nope").show();
-            $(this).hide();
-        } else {
-            $(this).show();
-        };
-
-    }); // --- document.on.click bkMark
-
+    //function on nopes button click
     $(document).on("click", ".nope", function() {
         var movieId = $(this).attr("data-link");
-        $(".nope").show();
-        $(this).hide();
-        remove(userPreference.bookmarkAdded, movieId);
-        database.ref().set(userPreference);
-    }); // --- document.on.click removeBKMark
+        var movieName = $(this).attr("data-name");
+        movieName = movieName.replace('&#39;', '\'');
+        //calling the user feedback function to set the firebase 
+        userFeedBack(0,movieId,movieName);
+    }); 
 
-    //function to check if the bookmark array has the movie already
-    function inArray(arr, item) {
-        var count = arr.length;
-        for (var i = 0; i < count; i++) {
-            if (arr[i].name === item) {
-                return true;
-            }
-        };
-
-        return false;
-    };
-
-    function remove(arr, item) {
-        for (var i = arr.length - 1; i >= 0; i--) {
-            if (arr[i].id === item) {
-                arr.splice(i, 1);
-            };
-        };
-    }; // --- end function remove
-
-    function displayMovie() {
+    //function to display movies in loves.html page
+   function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var lovesDiv = $("<p>");
             lovesDiv.addClass("loves btn");
             lovesDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
-            lovesDiv.text(userPreference.bookmarkAdded[i].name);
+            lovesDiv.html("<b><font size='6'>" + userPreference.bookmarkAdded[i].name +" </b></font> &nbsp;&nbsp;LOVED: " + userPreference.bookmarkAdded[i].hellYeahClickCounter +" &nbsp;&nbsp;NOPE: " + userPreference.bookmarkAdded[i].nopesClickCounter);
             $('#movie-loved').append(lovesDiv);
-            //console.log(userPreference.bookmarkAdded[i].name);
         }
-        //console.log("display loop completed:"+userPreference.bookmarkAdded.length);
     };
 
+    //function to set the userPreference in the firebase after checking if the movie is in bookmark array or not
+    function userFeedBack(feedback,id,name) {
+        var mov = null;
+        for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
+            if(userPreference.bookmarkAdded[i].id === id) {
+                mov = userPreference.bookmarkAdded[i];   
+            }
+        }
+        if(mov == null){
+            mov = {
+                id: id,
+                name: name,
+                hellYeahClickCounter: 0,
+                nopesClickCounter: 0
+            };
+            userPreference.bookmarkAdded.push(mov);  
+        }
+        feedback == 1 ? ++mov.hellYeahClickCounter : ++mov.nopesClickCounter;
+        database.ref().set(userPreference);
+    }
+    
+    // function to display movie in loves section after the firebase is initialized  
     checkUserInitialized();
 
 });
