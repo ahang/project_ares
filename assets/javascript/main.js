@@ -140,20 +140,20 @@ $(document).ready(function() {
             //Netflix.addText("View it on Netflix");
             $("#movie-view").append(netflixBtn);
 
-            var bookmark = $("<button>");
-            bookmark.addClass("bkMark btn btn-success");
-            bookmark.attr("data-link", response.ITEMS[0][4]);
+            var hellYeah = $("<button>");
+            hellYeah.addClass("hellYh btn btn-success");
+            hellYeah.attr("data-link", response.ITEMS[0][4]);
             var sanitizedMovieName = decodeURIComponent(response.ITEMS[0][1]);
-            bookmark.attr("data-name", sanitizedMovieName);
-            bookmark.text("HELL YEAH");
-            $("#movie-view").append(bookmark);
+            hellYeah.attr("data-name", sanitizedMovieName);
+            hellYeah.text("HELL YEAH");
+            $("#movie-view").append(hellYeah);
 
-            var removeBookmark = $("<button>");
-            removeBookmark.addClass("removeBkMark btn btn-warning");
-            removeBookmark.attr("data-link", response.ITEMS[0][4]);
-            removeBookmark.text("NOPE");
-            $("#movie-view").append(removeBookmark);
-            $(".removeBkMark").hide();
+            var nopes = $("<button>");
+            nopes.addClass("nope btn btn-warning");
+            nopes.attr("data-link", response.ITEMS[0][4]);
+            nopes.text("NOPE");
+            $("#movie-view").append(nopes);
+            $(".nope").hide();
         }).fail(function() {
             clearInfo();
             $("#movie-view").html("The selected movie we attempted to search is not available on <b>Netflix</b>. Please try again");
@@ -183,7 +183,7 @@ $(document).ready(function() {
 
     });
 
-    $(document).on("click", ".bkMark", function() {
+    $(document).on("click", ".hellYh", function() {
         var movieId = $(this).attr("data-link");
         var movieName = $(this).attr("data-name");
         movieName = movieName.replace('&#39;', '\'')
@@ -196,7 +196,7 @@ $(document).ready(function() {
         database.ref().set(userPreference);
 
         if (inArray(userPreference.bookmarkAdded, movieName)) {
-            $(".removeBkMark").show();
+            $(".nope").show();
             $(this).hide();
         } else {
             $(this).show();
@@ -204,9 +204,9 @@ $(document).ready(function() {
 
     }); // --- document.on.click bkMark
 
-    $(document).on("click", ".removeBkMark", function() {
+    $(document).on("click", ".nope", function() {
         var movieId = $(this).attr("data-link");
-        $(".bkMark").show();
+        $(".nope").show();
         $(this).hide();
         remove(userPreference.bookmarkAdded, movieId);
         database.ref().set(userPreference);
@@ -234,13 +234,11 @@ $(document).ready(function() {
 
     function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
-            var BookMarkDiv = $("<p>");
-            BookMarkDiv.addClass("loves btn");
-            BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
-            BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
-            $('#movie-bookmarked').append(BookMarkDiv);
-            // var br = $("<br>");
-            // $('#movie-bookmarked').append("<br>");
+            var lovesDiv = $("<p>");
+            lovesDiv.addClass("loves btn");
+            lovesDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
+            lovesDiv.text(userPreference.bookmarkAdded[i].name);
+            $('#movie-loved').append(lovesDiv);
             //console.log(userPreference.bookmarkAdded[i].name);
         }
         //console.log("display loop completed:"+userPreference.bookmarkAdded.length);
