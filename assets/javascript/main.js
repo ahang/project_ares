@@ -84,10 +84,10 @@ $(document).ready(function() {
             function randomOrder() {
                 return Math.floor(Math.random() * 20);
             }
-
+            //randomly pick a title
             var randomOrder = randomOrder();
             var title = response.results[randomOrder].title;
-            // title = decodeURIComponent(title);
+
 
 
             flixRoulette(title);
@@ -112,12 +112,12 @@ $(document).ready(function() {
     // GENRES
     // action: 28, comedy: 35, sci-fi: 878, romance: 10749, horror: 27, drama: 18
 
-
+    //feeding the title from the first Ajax Call into search Param
     function flixRoulette(movieTitle) {
         var searchParam = encodeURIComponent(movieTitle);
-
+        //query URL from unofficial netflix online global search param
         var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and";
-
+        //ajax call to UNOGS
         $.ajax({
             beforeSend: function(request) {
                 request.setRequestHeader("X-Mashape-Key", "RRfJ8Skq6Hmsh65wXDWWw17W0Ap5p1fSpnIjsnKyPAn2lruy8c");
@@ -126,24 +126,25 @@ $(document).ready(function() {
             url: unogsUrl,
             method: 'GET'
         }).then(function(response) {
+            //If title is a valid response in netflix input the title/poster/plot 
             $("#movie-view").html("<p>Your selected movie is " + "<b>" + response.ITEMS[0][1] + "</p>");
             $("#movie-view").append("<br>" + '<img src="' + response.ITEMS[0][2] + '"/>').addClass('imageStyle');
             $("#movie-view").append("<br><br> Plot: " + response.ITEMS[0][3] + "<br>");
-
+            //append the button to the div and clicking on the button will direct the user to the netflix page
             var netflixBtn = $("<button>");
             netflixBtn.addClass("btn netflixBtn");
             netflixBtn.attr("data-link", response.ITEMS[0][4]);
             netflixBtn.append('<img class="netflix-size" src="assets/images/Netflix-logo.png">');
             $("#movie-view").append(netflixBtn);
-
-            var hellYeah = $("<button>");
-            hellYeah.addClass("hellYh btn btn-success");
-            hellYeah.attr("data-link", response.ITEMS[0][4]);
+            //Add a button to see if the user likes the movie we selected
+            var loveIt = $("<button>");
+            loveIt.addClass("hellYh btn btn-success");
+            loveIt.attr("data-link", response.ITEMS[0][4]);
             var sanitizedMovieName = decodeURIComponent(response.ITEMS[0][1]);
-            hellYeah.attr("data-name", sanitizedMovieName);
-            hellYeah.text("HELL YEAH");
-            $("#movie-view").append(hellYeah);
-
+            loveIt.attr("data-name", sanitizedMovieName);
+            loveIt.text("Love It!");
+            $("#movie-view").append(loveIt);
+            //If the movie is added to the DB, remove the movie if they disliked it
             var nopes = $("<button>");
             nopes.addClass("nope btn btn-warning");
             nopes.attr("data-link", response.ITEMS[0][4]);
@@ -151,19 +152,20 @@ $(document).ready(function() {
             nopes.text("NOPE");
             $("#movie-view").append(nopes);
         }).fail(function() {
+            //This is what happens if the title is not on netflix
             clearInfo();
             $("#movie-view").html("The selected movie we attempted to search is not available on <b>Netflix</b>. Please try again");
         }); // --- end fail
     }; // --- end function flixRoulette
 
-
+    //Emptying out the movie view div
     function clearInfo() {
         $("movie-view").empty;
     } // --- end function clearInfo
 
 
     $(document).on("click", ".netflixBtn", function() {
-
+        //on click open up the netflix URL with the respective data-link attr
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
         window.open(netflixURL);
@@ -171,6 +173,7 @@ $(document).ready(function() {
     }); // --- end document.on.click netflixBtn
 
     $(document).on("click", ".loves", function() {
+        //on click on the loves page to open up the respective title
         var name = $(this).attr("data-link");
         var netflixURL = "https://www.netflix.com/title/" + name;
         window.open(netflixURL);
