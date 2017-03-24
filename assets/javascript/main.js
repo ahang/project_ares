@@ -235,7 +235,7 @@ $(document).ready(function() {
     function displayMovie() {
         for (var i = 0; i < userPreference.bookmarkAdded.length; i++) {
             var BookMarkDiv = $("<p>");
-            BookMarkDiv.addClass("loves");
+            BookMarkDiv.addClass("loves btn");
             BookMarkDiv.attr("data-link", userPreference.bookmarkAdded[i].id);
             BookMarkDiv.text(userPreference.bookmarkAdded[i].name);
             $('#movie-bookmarked').append(BookMarkDiv);
