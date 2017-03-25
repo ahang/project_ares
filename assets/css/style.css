@@ -191,3 +191,7 @@ h1 {
 	display: list-item;
 	text-align: left;
 }
+
+.relativeFooter {
+	position: relative;
+}
