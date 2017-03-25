@@ -1,17 +1,28 @@
 PRESENTATION
+	LIAM
+		"I can guide the process by reading off this list and tailoring it to who has to speak if everyone wants. I'll try to make it as fluid as possible."
+
 
 LOUISE
-INTRO
-30s	
-Introduction of Project Name, Introduce team members, Reason for the Problem: Trying to ease the decision making portion of Netflix movie browsing.
+	INTRO
+		Introduction of Project Name, 
+		Introduce team members, 
+		What problem were we trying to solve
 
-30s 
-Who influenced it: Andy though about using movies as an issue, and we all collaborated on issues with Netflix. We learned quickly that we all had an issue with searching for a movie while trying to chill... heh heh
+
+
+
+			"Trying to ease the decision making portion of movie browsing on an online Streaming platform."
+
+
+		Who influenced it: 
+			Everyone who interacted with movie streaming Andy though about using movies as an issue, and we all collaborated on issues with Netflix. We learned quickly that we all had an issue with searching for a movie while trying to chill... heh heh
 
 HOW YOUR APP WILL SOLVE A PROBLEM
-1ms we help the user by finding a movie with a high rating through IMDBs rating system
+1ms 
+	we help the user by finding a movie with a high rating through IMDBs rating system
 
-
+=========
 LIAM 
 // DESIGN
 	// How did you go about solving your solution
@@ -25,8 +36,9 @@ LIAM
 			Adobe Illustrator
 			Boostrap
 			minimal website influence
+=========
 
-
+=========
 ANDREW
 // PROJECT MANAGEMENT
 	// How did your team built a list of tasks and shared duties?
@@ -37,56 +49,101 @@ ANDREW
 		We used Trello for project management. 
 	// What was the most difficult part of project management?
 		The most difficult part of project management is properly delegating the correct amount of work based on people's availability outside of class. 
+=========
+
 
 
 DEMONSTRATION
 
+=========
 // INTRO PAGE / LOGIN
 	ANDY — speaks briefly about how the login button works. Follows through with clicking it.
+=========
+
+=========
 
 // FUNCTIONALITY / MAIN PAGE
 	SHREYA - speak briefly about the layout of the page. 
 			 2 sides to the page
-			 	left side 
+			 	* left side section
 			 		has the logo and brand
 			 		has the buttons to click
-			 	right side
+			 	* right side section
 			 		has the about
 			 		has the contact
 			 		has the community favourites
 			 		for the home page, it has your name and the signout button
+=========
 
 	LOUISE - speak about the functionality of the links at the top
 			 on the left side if you click 
 			 	- the about section will take you to an information page about us
 			 	- the contact section takes you to an email form where you can send us an email
+=========
+
 	SHREYA 		- the Loves section shows the community favourited movies
+				- was it difficult coding that section
+
+=========
 
 	LIAM 	- brings us back to the main page by click on the logo button
 			- explains the buttons on the main page.
-
+=========
 
 ABOUT - CONTACT
-LOUISE
+	LOUISE
+		Discuss where you got the information for the code. 
+		How you tested it.
+		Talk about how Liam broke the button (funny point)
+		switch to Liam talking about how he had to work on the CSS
+
+=========
 
 WAS MOST DIFFICULT
-LOGIN 
-API out of date
-Price of other APIS
-Limited usage of freemium APIs
+	ANDY 
+		LOGIN 
+		API out of date
+		Price of other APIS
+		Limited usage of freemium APIs
 
+=========
 EXTRA FEATURES
-User profile
-tracking movies given
-tracking movies they liked, and tailoring the algorithm to give them movies dependent on what they have liked
-Create a Modal instead of popping up on the second half of the screen
-make the image clickable, instead of just the button
+	SHREYA
+		User favourites
+			Speak a little bit about how you developed the love section and how we can update user interaction
+		Scoring System
+			Better algorythm for how we score movies: currently only 5/10 and better get chosen
+	LIAM
+		tracking movies given
+		tracking movies they liked, and tailoring the algorithm to give them movies dependent on what they have liked
+		Create a Modal instead of popping up on the second half of the screen
+		make the image clickable, instead of just the button
+		Make the app portable to iOS and Android devices
+		Make the app more window flexible
+	ANDY 
+		User profile
+			speak about adding better login
+			holding information that they've viewed and tailoring it to their preference
+	
+	LOUISE
+		Adding other streaming services
+			such as HBO GO, Amazon Prime, Crunchyroll (anime only streaming), Hulu and more
+
 
 START OVER
-Not spend as much time for the login and probably not use the same framework
-Better psuedo code 
-Deviate actual tasks better
-Not use Flixster API
+	ANDY
+		Not spend as much time for the login and probably not use the same framework
+		Better psuedo code 
+		Deviate actual tasks better
+	LOUISE
+		Not use Flixster API
+		Make the app work on all screens, including her macbook
+	LIAM
+		Make the app more mobile friendly
+	SHREYA
+		Beginning Development of a backup page in case the API broke
+
+
 
 
 

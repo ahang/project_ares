@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     // Initialize Firebase
+    // the information needed to access Firebase
     var config = {
         apiKey: "AIzaSyAAJtv2XWoOxQ_1czEw3u6DR5m8OTwC2Qo",
         authDomain: "projares-b990d.firebaseapp.com",
@@ -9,7 +10,7 @@ $(document).ready(function() {
         messagingSenderId: "811073714607"
     }; // --- end config
 
-
+    // this section will give information to our Firebase database
     firebase.initializeApp(config);
     var database = firebase.database();
 
@@ -34,17 +35,6 @@ $(document).ready(function() {
         }
 
     } // --- end function checkUserInitialize
-
-    // function buttonClickHandler(buttonName, genre) {
-    //     var formattedButtonName = "." + buttonName;
-    //     var genreType = genre;
-
-    //     $(formattedButtonName).on("click", function(event) {
-    //         event.preventDefault();
-    //         clearInfo();
-    //     });
-    // };
-
 
     $(".movie-button").on("click", function(event) {
         var genre = $(this).data("genre");
@@ -112,7 +102,7 @@ $(document).ready(function() {
     // GENRES
     // action: 28, comedy: 35, sci-fi: 878, romance: 10749, horror: 27, drama: 18
 
-    //feeding the title from the first Ajax Call into search Param
+    // feeding the title from the first Ajax Call into search Param
     function flixRoulette(movieTitle) {
         var searchParam = encodeURIComponent(movieTitle);
         //query URL from unofficial netflix online global search param

@@ -123,18 +123,17 @@ h1 {
     background: none;
 }
 .netflix-size {
-<<<<<<< HEAD
 	width: 65px;
 	height: 20px;
 	margin: 0 10px;
-=======
+
     width: 65px;
     height: 20px;
->>>>>>> 8d774b836e84922e6ab7bd0d6703b0c7b872a62d
+
 }
 .aboutText {
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     margin: auto 0px;
 }
 .footerLink,
@@ -173,13 +172,19 @@ h1 {
     font-weight: bold;
     text-decoration: none;
 }
+
+.item { font-size: 10px; }
+
 .item:hover a p.new-label span {
     display: none;
-    text-decoration: none;
+    /*text-decoration: none;*/
+	font-size: 20px;
+    transition: content 2s ease;
 }
 .item:hover a p.new-label:after {
-    content: 'YEAH... IF YOU COULD JUST CLICK BELOW... THAT BE GREAT.';
-    text-decoration: none;
+    content: 'CHOOSE A GENRE';
+    /*text-decoration: none;*/
+    transition: content 2s ease;
 }
 
 .loves {
