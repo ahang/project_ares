@@ -8,6 +8,8 @@
 * [Shreya Kondilya](https://github.com/skondilya)
 * [Louise Nyambati](https://github.com/LouiseNyambati)
 
+###How to Run
+[Click Here](https://stormy-ocean-12127.herokuapp.com/) to access the app.
 
 ### Objective
 To assist users of Netflix to narrow down a good movie based on IMDB Rating of 6 or higher. More movie time and less browse time
