@@ -1,4 +1,4 @@
-# NAME TBD
+# The APP (The Almost Perfect Pick)
 
 ## Project 1 for NW Coding Boot Camp
 
