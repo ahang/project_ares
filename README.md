@@ -9,7 +9,7 @@
 * [Louise Nyambati](https://github.com/LouiseNyambati)
 
 ### How to Run
-[Click Here](/project_ares/) to access the app.
+[Click Here](www.andyhang.com/project_ares) to access the app.
 
 ### Objective
 To assist users of Netflix to narrow down a good movie based on IMDB Rating of 6 or higher. More movie time and less browse time
