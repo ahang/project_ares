@@ -110,7 +110,7 @@ $(document).ready(function() {
         //ajax call to UNOGS
         $.ajax({
             beforeSend: function(request) {
-                request.setRequestHeader("X-Mashape-Key", "RRfJ8Skq6Hmsh65wXDWWw17W0Ap5p1fSpnIjsnKyPAn2lruy8c");
+                request.setRequestHeader("X-Mashape-Key", "N64fnO1MfGmshUVccjkmLf8MYqlkp1ovUZvjsnV0CuzU5BhIdI");
                 request.setRequestHeader("Accept", "application/json");
             },
             url: unogsUrl,
