@@ -1,6 +1,6 @@
 # The APP (The Almost Perfect Pick)
 
-## Project 1 for NW Coding Boot Camp
+## Project 1 for NU Coding Boot Camp
 
 ### Created By
 * [Liam Fox](https://github.com/FoxMessenger)
