@@ -109,10 +109,6 @@ $(document).ready(function() {
         var unogsUrl = "https://unogs-unogs-v1.p.mashape.com/api.cgi?q=" + searchParam + "-!1900,2017-!0,5-!6,10-!0-!Any-!Any-!Any-!gt500-!Yes&t=ns&cl=78&st=adv&ob=Relevance&p=1&sa=and";
         //ajax call to UNOGS
         $.ajax({
-            beforeSend: function(request) {
-                request.setRequestHeader("X-Mashape-Key", "N64fnO1MfGmshUVccjkmLf8MYqlkp1ovUZvjsnV0CuzU5BhIdI");
-                request.setRequestHeader("Accept", "application/json");
-            },
             url: unogsUrl,
             method: 'GET'
         }).then(function(response) {
